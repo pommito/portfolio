@@ -16,13 +16,13 @@ import logo from "../assets/Logo_3D.png"
         <li class="p-1">
           <a href="/about" aria-label="Aller sur la page a propos">
             <span>A propos</span>
-            <sup><Shortcut>i</Shortcut></sup>
+            <sup class="[@media(pointer:coarse)]:hidden"><Shortcut>i</Shortcut></sup>
           </a>
         </li>
         <li class="p-1">
           <a href="/blog" aria-label="Aller sur le blog">
             <span>Blog</span>
-            <sup><Shortcut>b</Shortcut></sup>
+            <sup class="[@media(pointer:coarse)]:hidden"><Shortcut>b</Shortcut></sup>
           </a>
         </li>
       </ul>
@@ -32,9 +32,7 @@ import logo from "../assets/Logo_3D.png"
 
 <script>
   import { handleKeyboardShortcut } from "../../src/utils/keyboardShortcut";
-  
   document.addEventListener('keydown', handleKeyboardShortcut);
-
 </script>
 
 
