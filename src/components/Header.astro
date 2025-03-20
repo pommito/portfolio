@@ -13,7 +13,7 @@ import logo from "../assets/Logo_3D.png"
       <ul class="flex items-center gap-4">
         <li><a href="/about" class="p-1">A propos</a></li>
         <li><a href="/blog" class="p-1">Blog</a></li>
-        <li><button id="themeSwitcher" class="size-3 bg-neutral-900 dark:bg-neutral-100 rounded-full cursor-pointer transition-colors ease-in-out duration-500" aria-label="Change le thème du site"></button></li>
+        <li class="group flex items-center justify-center"><button id="themeSwitcher" class="size-3 bg-neutral-900 dark:bg-neutral-100 rounded-full cursor-pointer transition-all ease-in-out duration-500 group-hover:scale-85" aria-label="Change le thème du site"></button></li>
       </ul>
     </nav>
   </div>
@@ -27,14 +27,9 @@ import logo from "../assets/Logo_3D.png"
   }
 
   const themeSwitcherElem = document.getElementById('themeSwitcher');
-  console.log(themeSwitcherElem);
   
   if (themeSwitcherElem) {
-    themeSwitcherElem.addEventListener('click', () => {
-      console.log('click');
-      
-      toggleTheme();
-    });
+    themeSwitcherElem.addEventListener('click', toggleTheme);
   }
 </script>
 
