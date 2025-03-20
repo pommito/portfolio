@@ -8,12 +8,13 @@ const year = new Date().getFullYear();
   <button id="themeSwitcher" class="size-2 bg-neutral-900 dark:bg-neutral-100 rounded-full cursor-pointer transition-all ease-in-out duration-500 group-hover:scale-85" aria-label="Change le thème du site"></button>
 </footer>
 
-<script type="module">
+<script>
   import { toggleTheme } from "../../src/utils/theme";
+  document.addEventListener('astro:page-load', () => {
+    const themeSwitcherElem = document.getElementById('themeSwitcher');
+    if (themeSwitcherElem) {
+      themeSwitcherElem.addEventListener('click', toggleTheme);
+    }
+});
   
-  const themeSwitcherElem = document.getElementById('themeSwitcher');
-  
-  if (themeSwitcherElem) {
-    themeSwitcherElem.addEventListener('click', toggleTheme);
-  }
 </script>
