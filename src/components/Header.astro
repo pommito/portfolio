@@ -4,16 +4,37 @@ import { Image } from "astro:assets";
 import logo from "../assets/Logo_3D.png"
 
 ---
-
-
 <header class="mb-16 sm:mb-32">
   <div class="flex items-center justify-between">
     <a href="/" class="">
       <Image src={logo} alt="Logo de Victor Lebecq" width="100" height="100" class="size-6 object-cover object-center" />
     </a>
-    <nav class="space-x-4">
-      <a href="/about" class="p-1">A propos</a>
-      <a href="/blog" class="p-1">Blog</a>
+    <nav>
+      <ul class="flex items-center gap-4">
+        <li><a href="/about" class="p-1">A propos</a></li>
+        <li><a href="/blog" class="p-1">Blog</a></li>
+        <li><button id="themeSwitcher" class="size-3 bg-neutral-900 dark:bg-neutral-100 rounded-full cursor-pointer transition-colors ease-in-out duration-500" aria-label="Change le thème du site"></button></li>
+      </ul>
     </nav>
   </div>
 </header>
+
+<script>
+  function toggleTheme() {
+    const currentTheme = document.body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.body.setAttribute('data-theme', newTheme);
+  }
+
+  const themeSwitcherElem = document.getElementById('themeSwitcher');
+  console.log(themeSwitcherElem);
+  
+  if (themeSwitcherElem) {
+    themeSwitcherElem.addEventListener('click', () => {
+      console.log('click');
+      
+      toggleTheme();
+    });
+  }
+</script>
+
