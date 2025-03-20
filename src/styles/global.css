@@ -11,3 +11,5 @@
 @theme {
   --font-sans: 'Inter', 'sans-serif';
 }
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
