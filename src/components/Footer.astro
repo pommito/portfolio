@@ -3,6 +3,17 @@
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-neutral-200 dark:border-neutral-800 py-2 mt-16 sm:mt-32">
+<footer class="flex items-center justify-between border-t border-neutral-200 dark:border-neutral-800 py-2 mt-16 sm:mt-32">
   <span class="text-xs text-neutral-500">© {year} Victor Lebecq</span>
+  <button id="themeSwitcher" class="size-2 bg-neutral-900 dark:bg-neutral-100 rounded-full cursor-pointer transition-all ease-in-out duration-500 group-hover:scale-85" aria-label="Change le thème du site"></button>
 </footer>
+
+<script type="module">
+  import { toggleTheme } from "../../src/utils/theme";
+  
+  const themeSwitcherElem = document.getElementById('themeSwitcher');
+  
+  if (themeSwitcherElem) {
+    themeSwitcherElem.addEventListener('click', toggleTheme);
+  }
+</script>

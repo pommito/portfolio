@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 
+import Shortcut from "@/components/ui/Shortcut.astro";
+
 import logo from "../assets/Logo_3D.png"
 
 ---
@@ -11,21 +13,29 @@ import logo from "../assets/Logo_3D.png"
     </a>
     <nav>
       <ul class="flex items-center gap-4">
-        <li><a href="/about" class="p-1">A propos</a></li>
-        <li><a href="/blog" class="p-1">Blog</a></li>
-        <li class="group flex items-center justify-center"><button id="themeSwitcher" class="size-3 bg-neutral-900 dark:bg-neutral-100 rounded-full cursor-pointer transition-all ease-in-out duration-500 group-hover:scale-85" aria-label="Change le thème du site"></button></li>
+        <li class="p-1">
+          <a href="/about" aria-label="Aller sur la page a propos">
+            <span>A propos</span>
+            <sup><Shortcut>i</Shortcut></sup>
+          </a>
+        </li>
+        <li class="p-1">
+          <a href="/blog" aria-label="Aller sur le blog">
+            <span>Blog</span>
+            <sup><Shortcut>b</Shortcut></sup>
+          </a>
+        </li>
       </ul>
     </nav>
   </div>
 </header>
 
-<script type="module">
-  import { toggleTheme } from "../../src/utils/theme";
+<script>
+  import { handleKeyboardShortcut } from "../../src/utils/keyboardShortcut";
   
-  const themeSwitcherElem = document.getElementById('themeSwitcher');
-  
-  if (themeSwitcherElem) {
-    themeSwitcherElem.addEventListener('click', toggleTheme);
-  }
+  document.addEventListener('keydown', handleKeyboardShortcut);
+
 </script>
+
+
 
