@@ -19,13 +19,9 @@ import logo from "../assets/Logo_3D.png"
   </div>
 </header>
 
-<script>
-  function toggleTheme() {
-    const currentTheme = document.body.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    document.body.setAttribute('data-theme', newTheme);
-  }
-
+<script type="module">
+  import { toggleTheme } from "../../src/utils/theme";
+  
   const themeSwitcherElem = document.getElementById('themeSwitcher');
   
   if (themeSwitcherElem) {
