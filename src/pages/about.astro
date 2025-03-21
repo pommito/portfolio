@@ -15,24 +15,32 @@ import image from "@/assets/about.jpg";
 <Layout>
   <h1 class="text-2xl">A propos</h1>
 	<h2 class="text-neutral-500">Trouver un petit text ici</h2>
-	<p class="font-light text-balance mt-6 space-y-4">
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus laudantium ipsam quibusdam vel iste animi vero tempore, voluptatibus quasi, beatae, dolorem dolores nostrum earum rerum nisi obcaecati suscipit quaerat magni.
+	<p class="font-light text-pretty mt-6">
+    Depuis tout petit, j'aime construire des choses, que ce soit avec du code ou avec mes mains. Quand je rencontre un problème, je veux lui trouver une solution. Aujourd'hui je met cette envie au service de mes clients en développant des solutions digitales venant répondre à leurs besoins.
 	</p>
+  <p class="font-light text-pretty mt-6">
+    Quand je ne suis pas entrain de coder, je suis probablement entrain d'explorer les alpes à ski ou à pieds. 
+  </p>
   <Image src={image} alt="About" width="1280" height="720" class="mt-6 rounded" />
   
   <div class="mt-12 sm:mt-16">
     <h2 class="text-neutral-500 mb-6">[ Experiences ]</h2>
-
     <WorkExperience />
     <WorkExperience />
-		
 	</div>
   
   <div class="mt-12 sm:mt-16">
-    <h2 class="text-neutral-500 mb-6">[ Projets ]</h2>
-		<p class="font-light text-balance mt-6 space-y-4">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus laudantium ipsam quibusdam vel iste animi vero tempore, voluptatibus quasi, beatae, dolorem dolores nostrum earum rerum nisi obcaecati suscipit quaerat magni.
+    <h2 class="text-neutral-500 mb-6">[ Technos ]</h2>
+		<p class="font-light text-pretty mt-6 space-y-4">
+      Actuellement je travail principalement avec <strong class="font-medium">Wordpress</strong> ou des frameworks javascript comme <strong class="font-medium">React</strong> ou recemment <strong class="font-medium">AstroJS</strong> dont j'apprecie tout particulièrement la DX (Developer Experience). Pour le styling, après avoir élaborer mes maquettes sur Figma, j'aime utiliser <strong class="font-medium">TailwindCSS</strong> pour sa simplicité et son efficacité.
     </p>
+    <p class="font-light text-pretty mt-6">
+      Avant chaque démarrage, je sélectionne la technologie qui répondra le plus efficacement à mes besoins, tout en minimisant (le plus possible) l'impact du projet sur notre belle planète.
+    </p>
+    <div class="flex items-center text-sm bg-neutral-300 dark:bg-neutral-800 border border-neutral-500 gap-2 mt-6 w-fit px-3 py-2 rounded">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg>
+      <span>Ce site génère 0.07g de C02 par visite.</span>
+    </div>
 	</div>
   <SocialLinks />
 </Layout>
