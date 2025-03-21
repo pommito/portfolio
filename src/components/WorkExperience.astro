@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 
 import logoTitan from "@/assets/logo_titan.png";
+import Tag from "./ui/Tag.astro";
 ---
 
 <div class="flex items-center rounded-xl gap-4 p-2 -ml-2 transition-all ease-in duration-300 group-hover:not-hover:opacity-20">
@@ -12,7 +13,8 @@ import logoTitan from "@/assets/logo_titan.png";
     <h3 class="">Développeur Web Freelance</h3>
     <p class="font-light text-sm">lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus laudantium ipsam quibusdam vel iste animi vero tempore, voluptatibus quasi, beatae.</p>
     <div class="space-x-2">
-      <span class="bg-neutral-200 dark:bg-neutral-800 text-xs rounded w-fit px-2 py-1">AstroJS</span>
+      <Tag label="React" />
+      <Tag label="Wordpress" />
     </div>
   </div>
   <span class="text-sm">Mar 2024 - Nov 2024</span>

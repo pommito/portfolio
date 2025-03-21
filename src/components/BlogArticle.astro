@@ -1,4 +1,6 @@
 ---
+import Tag from './ui/Tag.astro';
+
 
 type Props = {
   title: string;
@@ -21,7 +23,7 @@ const { title, date, categories, slug = '#' } = Astro.props as Props;
     </h3>
     <div class="space-x-2">
       {categories.map((category) => (
-        <span class="bg-neutral-200 dark:bg-neutral-800 text-xs rounded w-fit px-2 py-1">{category}</span>
+        <Tag label={category} />
       ))}
     </div>
   </div>

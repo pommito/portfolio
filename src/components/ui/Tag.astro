@@ -1,0 +1,9 @@
+---
+type Propos = {
+  label: string;
+}
+
+const { label } = Astro.props as Propos;
+---
+
+<span class="bg-neutral-200 dark:bg-neutral-800 text-xs rounded w-fit px-2 py-1">{label}</span>
