@@ -1,12 +1,23 @@
 ---
 
+type Props = {
+  title: string;
+  date: string;
+  categories: string[];
+}
+
+const { title, date, categories } = Astro.props as Props;
+
 ---
 
-<div class="flex items-center rounded-xl p-3 -ml-3 transition-all ease-in duration-300 group-hover:not-hover:opacity-20">
+<div class="flex items-center rounded-xl p-2 -ml-2 transition-all ease-in duration-300 group-hover:not-hover:opacity-20">
   <div class="flex-1">
-    <h3 class="">Lorem ipsum dolor sit amet</h3>
-    <span class="bg-neutral-200 dark:bg-neutral-800 text-xs rounded w-fit px-2 py-1">Astro</span>
-    <span class="bg-neutral-200 dark:bg-neutral-800 text-xs rounded w-fit px-2 py-1">Freelance</span>
+    <h3 class="">{title}</h3>
+    <div class="space-x-2">
+      {categories.map((category) => (
+        <span class="bg-neutral-200 dark:bg-neutral-800 text-xs rounded w-fit px-2 py-1">{category}</span>
+      ))}
+    </div>
   </div>
-  <div class="text-xs">Juillet 2024</div>
+  <div class="text-xs">{date}</div>
 </div>
