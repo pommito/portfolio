@@ -1,4 +1,5 @@
 ---
+import BlogCard from "@/components/ui/BlogCard.astro";
 import Layout from "@/layouts/Layout.astro";
 
 
@@ -7,4 +8,13 @@ import Layout from "@/layouts/Layout.astro";
 
 <Layout>
   <h1 class="text-2xl">Blog</h1>
+	<h2 class="text-neutral-500">Je documente ma veille et mon activité de freelance</h2>
+	
+  <div class="mt-12 sm:mt-16">
+		<div class="group">
+			<BlogCard />
+			<BlogCard />
+			<BlogCard />
+		</div>
+	</div>
 </Layout>
