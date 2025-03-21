@@ -3,6 +3,8 @@ import BlogCard from '@/components/ui/BlogCard.astro';
 import Card from '@/components/ui/Card.astro';
 import Layout from '@/layouts/Layout.astro';
 
+import logo from '@/assets/Logo_3D.png'
+
 ---
 
 <Layout>
@@ -15,9 +17,9 @@ import Layout from '@/layouts/Layout.astro';
 	<div class="mt-12 sm:mt-16">
 		<h2 class="text-neutral-500 mb-6">[ Projets ]</h2>
 		<div class="group space-y-2">
-			<Card />
-			<Card />
-			<Card />
+			<Card title='Lorem ipsum dolor sit amet' description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.' illustration={logo} link='#' />
+			<Card title='Lorem ipsum dolor sit amet' description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.' illustration={logo} link='#' />
+			<Card title='Lorem ipsum dolor sit amet' description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.' illustration={logo} link='#' />
 		</div>
 	</div>
 	<div class="mt-12 sm:mt-16">
