@@ -1,4 +1,4 @@
-export const handleModalTrigger = (modalElem: HTMLElement) => {
+export const toggleModal = (modalElem: HTMLElement) => {
     const isModalOpen = modalElem.getAttribute('data-state') === 'open'
     const inputElem = modalElem.querySelector('input') as HTMLInputElement
 
@@ -22,7 +22,7 @@ export const handleEscShortcut = (e: KeyboardEvent) => {
             searchMenuElem &&
             searchMenuElem.getAttribute('data-state') === 'open'
         ) {
-            handleModalTrigger(searchMenuElem)
+            toggleModal(searchMenuElem)
         }
     }
 }

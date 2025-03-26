@@ -10,7 +10,7 @@
 </button>
 
 <script>
-import { handleModalTrigger } from "@/utils/searchModal";
+import { toggleModal } from "@/utils/searchModal";
 
 const searchButtonElem = document.getElementById('search-button');
 const searchModalElem = document.getElementById('search-menu');
@@ -18,7 +18,7 @@ const searchModalElem = document.getElementById('search-menu');
 
 if (searchButtonElem && searchModalElem) {
   searchButtonElem.addEventListener('click', (e) => {
-    handleModalTrigger(searchModalElem);
+    toggleModal(searchModalElem);
   });
 }
 </script>

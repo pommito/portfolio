@@ -15,7 +15,7 @@ import SearchMenuListItem from "./SearchMenuListItem.astro";
     <header class="flex items-center justify-between gap-2">
       <label for="search-input" class="inline-flex font-sans text-base/4 gap-1 rounded  py-3 px-4 w-full">
         <input type="text" name="search-input" id="search-input" class="flex-1 pt-2 focus:outline-none focus:border-none font-light" placeholder="Rechercher..." aria-label="Rechercher" />
-        <button>
+        <button id="close-search-button" class="cursor-pointer">
           <kbd class="text-xs/4 text-neutral-500 dark:text-neutral-400 rounded bg-neutral-900/2 inset-ring inset-ring-neutral-950/8 dark:bg-white/5 dark:inset-ring-white/2  py-1 px-2">
             esc
           </kbd>
@@ -52,16 +52,20 @@ import SearchMenuListItem from "./SearchMenuListItem.astro";
 </SearchModalOverlay>
 
 <script>
-import { handleModalTrigger } from '@/utils/searchModal';
+import { toggleModal } from '@/utils/searchModal';
 
 document.addEventListener('astro:page-load', () => {
     const searchModalElem = document.getElementById('search-menu');
+    const closeSearchButtonElem = document.getElementById('close-search-button');
 
-    if (searchModalElem) {
+    if (searchModalElem && closeSearchButtonElem) {
         window.addEventListener('keydown', (e) => {
             if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
-                handleModalTrigger(searchModalElem);
+                toggleModal(searchModalElem);
             }
+        });
+        closeSearchButtonElem.addEventListener('click', (e) => {
+            toggleModal(searchModalElem);
         });
     }
 });
