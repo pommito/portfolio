@@ -1,6 +1,5 @@
 ---
 import SearchMenuListItem from "./SearchMenuListItem.astro";
-import Tag from "./ui/Tag.astro";
 
 
 ---
@@ -8,7 +7,7 @@ import Tag from "./ui/Tag.astro";
 <div role="dialog" class="max-w-xl mx-auto text-neutral-500 dark:text-neutral-400 bg-neutral-900/2 dark:bg-white/5 inset-ring inset-ring-neutral-950/8 dark:inset-ring-white/2 rounded-lg">
   <header class="flex items-center justify-between gap-2">
     <label for="search-input" class="inline-flex font-sans text-base/4 gap-1 rounded  py-3 px-4 w-full">
-      <input type="text" name="search-input" id="search-input" class="flex-1 " placeholder="Rechercher..." aria-label="Rechercher" />
+      <input type="text" name="search-input" id="search-input" class="flex-1 pt-2 focus:outline-none focus:border-none" placeholder="Rechercher..." aria-label="Rechercher" />
       <button>
         <kbd class="text-xs/4 text-neutral-500 dark:text-neutral-400 rounded bg-neutral-900/2 inset-ring inset-ring-neutral-950/8 dark:bg-white/5 dark:inset-ring-white/2  py-1 px-2">
           esc
