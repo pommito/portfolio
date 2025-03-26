@@ -1,12 +1,28 @@
 export const handleModalTrigger = (modalElem: HTMLElement) => {
     const isModalOpen = modalElem.getAttribute('data-state') === 'open'
-    const InputElem = modalElem.querySelector('input') as HTMLInputElement
+    const inputElem = modalElem.querySelector('input') as HTMLInputElement
 
-    modalElem.setAttribute(
-        'data-state',
-        isModalOpen === true ? 'close' : 'open'
-    )
-    document.body.classList.toggle('!overflow-hidden')
+    if (isModalOpen) {
+        modalElem.setAttribute('data-state', 'close')
+        document.body.setAttribute('data-modal', 'close')
+        inputElem.value = ''
+        window.removeEventListener('keydown', handleEscShortcut)
+    } else {
+        modalElem.setAttribute('data-state', 'open')
+        document.body.setAttribute('data-modal', 'open')
+        inputElem.focus()
+        window.addEventListener('keydown', handleEscShortcut)
+    }
+}
 
-    isModalOpen === true ? (InputElem.value = '') : InputElem.focus()
+export const handleEscShortcut = (e: KeyboardEvent) => {
+    if (e.key === 'Escape') {
+        const searchMenuElem = document.getElementById('search-menu')
+        if (
+            searchMenuElem &&
+            searchMenuElem.getAttribute('data-state') === 'open'
+        ) {
+            handleModalTrigger(searchMenuElem)
+        }
+    }
 }

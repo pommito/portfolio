@@ -55,16 +55,15 @@ import SearchMenuListItem from "./SearchMenuListItem.astro";
 import { handleModalTrigger } from '@/utils/searchModal';
 
 document.addEventListener('astro:page-load', () => {
-  const searchModalElem = document.getElementById('search-menu');
-  const searchInputElem = document.getElementById('search-input') as HTMLInputElement;
-  
-  if (searchModalElem && searchInputElem) {
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
-        handleModalTrigger(searchModalElem);
-      }
-    });
-  }
+    const searchModalElem = document.getElementById('search-menu');
+
+    if (searchModalElem) {
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+                handleModalTrigger(searchModalElem);
+            }
+        });
+    }
 });
 
 </script>
