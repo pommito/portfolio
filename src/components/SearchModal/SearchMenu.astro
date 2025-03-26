@@ -1,19 +1,16 @@
 ---
+import SearchModalOverlay from "./SearchModalOverlay.astro";
 import SearchMenuListItem from "./SearchMenuListItem.astro";
 
 
 ---
-<div 
-id="search-menu"
-aria-hidden="true"
-data-state="close"
-class="fixed w-full z-20 inset-0 bg-black/40 backdrop-blur-xs data-[state=open]:pointer-events-auto data-[state=close]:pointer-events-none data-[state=close]:hidden" 
->
+
+<SearchModalOverlay>
   <div 
     role="dialog" 
     aria-hidden="true"
     tabindex="-1"
-    class="fixed top-40 left-1/2 -translate-x-1/2 w-full z-999 max-w-xl  text-neutral-500 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800 inset-ring inset-ring-neutral-950/8 dark:inset-ring-white/2 rounded-lg"
+    class="relative mx-auto w-full top-20 z-999 max-w-xl  text-neutral-500 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800 inset-ring inset-ring-neutral-950/8 dark:inset-ring-white/2 rounded-lg"
   >
     <header class="flex items-center justify-between gap-2">
       <label for="search-input" class="inline-flex font-sans text-base/4 gap-1 rounded  py-3 px-4 w-full">
@@ -52,18 +49,19 @@ class="fixed w-full z-20 inset-0 bg-black/40 backdrop-blur-xs data-[state=open]:
       </ul>
     </div>
   </div>
-</div>
+</SearchModalOverlay>
 
 <script>
+import { handleModalTrigger } from '@/utils/searchModal';
 
 document.addEventListener('astro:page-load', () => {
-  const searchMenuElem = document.getElementById('search-menu');
+  const searchModalElem = document.getElementById('search-menu');
+  const searchInputElem = document.getElementById('search-input') as HTMLInputElement;
   
-  if (searchMenuElem) {
+  if (searchModalElem && searchInputElem) {
     window.addEventListener('keydown', (e) => {
       if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
-        const currentState = searchMenuElem.getAttribute('data-state');
-        searchMenuElem.setAttribute('data-state', currentState === 'open' ? 'close' : 'open');
+        handleModalTrigger(searchModalElem);
       }
     });
   }

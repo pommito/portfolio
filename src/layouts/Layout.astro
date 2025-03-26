@@ -24,12 +24,12 @@ import SearchMenu from '@/components/SearchModal/SearchMenu.astro';
 	</head>
 
 	<body class="bg-neutral-100 font-sans font-medium text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100" data-theme="dark">
-		<SearchMenu />
 		<div class="mx-auto max-w-3xl overflow-x-hidden px-6 pt-12 antialiased sm:pt-16 md:overflow-x-visible">
 			<Header />
 			<slot />
 			<Footer />
 		</div>
+		<SearchMenu />
 	</body>
 
 </html>
