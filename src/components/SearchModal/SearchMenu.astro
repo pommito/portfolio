@@ -61,7 +61,7 @@ document.addEventListener('astro:page-load', () => {
   
   if (searchMenuElem) {
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'k' && e.metaKey) {
+      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
         const currentState = searchMenuElem.getAttribute('data-state');
         searchMenuElem.setAttribute('data-state', currentState === 'open' ? 'close' : 'open');
       }
