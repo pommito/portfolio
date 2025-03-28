@@ -57,16 +57,34 @@ import { toggleModal } from '@/utils/searchModal';
 document.addEventListener('astro:page-load', () => {
     const searchModalElem = document.getElementById('search-menu');
     const closeSearchButtonElem = document.getElementById('close-search-button');
+    const searchInputElem = document.getElementById('search-input');
+    const menuItems = document.querySelectorAll('[role="menuitem"]');
+    let currentIndex = -1;
 
-    if (searchModalElem && closeSearchButtonElem) {
-        window.addEventListener('keydown', (e) => {
+    if (searchModalElem && closeSearchButtonElem && searchInputElem) {
+        const handleKeyDown = (e : KeyboardEvent) => {
             if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
                 toggleModal(searchModalElem);
+                if (searchModalElem.getAttribute('aria-hidden') === 'false') {
+                    searchInputElem.focus();
+                }
+            } else if (e.key === 'Escape') {
+                toggleModal(searchModalElem);
+            } else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+                if (currentIndex === -1 && e.key === 'ArrowDown') {
+                    currentIndex = 0;
+                } else if (e.key === 'ArrowUp' && currentIndex > 0) {
+                    currentIndex--;
+                } else if (e.key === 'ArrowDown' && currentIndex < menuItems.length - 1) {
+                    currentIndex++;
+                }
+                (menuItems[currentIndex] as HTMLElement).focus();
             }
-        });
-        closeSearchButtonElem.addEventListener('click', (e) => {
-            toggleModal(searchModalElem);
-        });
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        closeSearchButtonElem.addEventListener('click', () => toggleModal(searchModalElem));
+
     }
 });
 
