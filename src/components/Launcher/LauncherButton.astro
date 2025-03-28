@@ -10,15 +10,15 @@
 </button>
 
 <script>
-import { toggleModal } from "@/utils/searchModal";
+import { toggleModal } from "@/utils/launcher";
 
 const searchButtonElem = document.getElementById('search-button');
-const searchModalElem = document.getElementById('search-menu');
+const LauncherElem = document.getElementById('search-menu');
 
 
-if (searchButtonElem && searchModalElem) {
+if (searchButtonElem && LauncherElem) {
   searchButtonElem.addEventListener('click', (e) => {
-    toggleModal(searchModalElem);
+    toggleModal(LauncherElem);
   });
 }
 </script>

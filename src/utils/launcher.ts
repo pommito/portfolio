@@ -1,16 +1,16 @@
 export const toggleModal = (modalElem: HTMLElement) => {
     const isModalOpen = modalElem.getAttribute('data-state') === 'open'
-    const inputElem = modalElem.querySelector('input') as HTMLInputElement
+    // const inputElem = modalElem.querySelector('input') as HTMLInputElement
 
     if (isModalOpen) {
         modalElem.setAttribute('data-state', 'close')
         document.body.setAttribute('data-modal', 'close')
-        inputElem.value = ''
+        // inputElem.value = ''
         window.removeEventListener('keydown', handleEscShortcut)
     } else {
         modalElem.setAttribute('data-state', 'open')
         document.body.setAttribute('data-modal', 'open')
-        inputElem.focus()
+        // inputElem.focus()
         window.addEventListener('keydown', handleEscShortcut)
     }
 }

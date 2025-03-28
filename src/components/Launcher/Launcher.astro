@@ -1,76 +1,72 @@
 ---
-import SearchModalOverlay from "./SearchModalOverlay.astro";
-import SearchMenuListItem from "./SearchMenuListItem.astro";
+import LauncherOverlay from "./LauncherOverlay.astro";
+import LauncherListItem from "./LauncherListItem.astro";
 
 
 ---
 
-<SearchModalOverlay>
+<LauncherOverlay>
   <div 
     role="dialog" 
     aria-hidden="true"
     tabindex="-1"
     class="relative mx-auto w-full top-20 z-999 max-w-xl  text-neutral-500 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800 inset-ring inset-ring-neutral-950/8 dark:inset-ring-white/2 rounded-lg"
   >
-    <header class="flex items-center justify-between gap-2">
-      <label for="search-input" class="inline-flex font-sans text-base/4 gap-1 rounded  py-3 px-4 w-full">
-        <input type="text" name="search-input" id="search-input" class="flex-1 pt-2 focus:outline-none focus:border-none font-light" placeholder="Rechercher..." aria-label="Rechercher" />
-        <button id="close-search-button" class="cursor-pointer">
-          <kbd class="text-xs/4 text-neutral-500 dark:text-neutral-400 rounded bg-neutral-900/2 inset-ring inset-ring-neutral-950/8 dark:bg-white/5 dark:inset-ring-white/2  py-1 px-2">
-            esc
-          </kbd>
-        </button>
-      </label>
+    <header class="flex items-center justify-between gap-2 px-3 py-3">
+      <span>Command</span>
+      <button id="close-search-button" class="cursor-pointer">
+        <kbd class="text-xs/4 text-neutral-500 dark:text-neutral-400 rounded bg-neutral-900/2 inset-ring inset-ring-neutral-950/8 dark:bg-white/5 dark:inset-ring-white/2  py-1 px-2">
+          esc
+        </kbd>
+      </button>
     </header>
-    <div aria-labelledby="search-input" class="py-2">
+    <div class="py-2">
       <ul class="px-2">
         <li class="">
           <span class="inline-block text-xs/4 py-2 px-2">Pages</span>
           <ul class="text-base/4">
-            <SearchMenuListItem title="Accueil" />
-            <SearchMenuListItem title="A propos" />
-            <SearchMenuListItem title="Blog" tagLabel="New" />
+            <LauncherListItem title="Accueil" />
+            <LauncherListItem title="A propos" />
+            <LauncherListItem title="Blog" tagLabel="New" />
           </ul>
         </li>
         <li class="">
           <span class="inline-block text-xs/4 py-3 px-2">Réglages</span>
           <ul class="text-base/4">
-            <SearchMenuListItem title="Changer de thème" />
-            <SearchMenuListItem title="Changer de langue" />
+            <LauncherListItem title="Changer de thème" />
+            <LauncherListItem title="Changer de langue" />
           </ul>
         </li>
         <li class="">
           <span class="inline-block text-xs/4 py-3 px-2">Contact</span>
           <ul class="text-base/4">
-            <SearchMenuListItem title="Envoyer un email" />
-            <SearchMenuListItem title="Github" />
+            <LauncherListItem title="Envoyer un email" />
+            <LauncherListItem title="Github" />
           </ul>
         </li>
       </ul>
     </div>
   </div>
-</SearchModalOverlay>
+</LauncherOverlay>
 
 <script>
-import { toggleModal } from '@/utils/searchModal';
+import { toggleModal } from '@/utils/launcher';
 
 document.addEventListener('astro:page-load', () => {
-    const searchModalElem = document.getElementById('search-menu');
+    const LauncherElem = document.getElementById('search-menu');
     const closeSearchButtonElem = document.getElementById('close-search-button');
-    const searchInputElem = document.getElementById('search-input');
     const menuItems = document.querySelectorAll('[role="menuitem"]');
     let currentIndex = -1;
 
-    if (searchModalElem && closeSearchButtonElem && searchInputElem) {
+    if (LauncherElem && closeSearchButtonElem) {
         const handleKeyDown = (e : KeyboardEvent) => {
             if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
-                toggleModal(searchModalElem);
+              console.log('pressed');
+              
+                toggleModal(LauncherElem);
                 currentIndex = -1;
-                if (searchModalElem.getAttribute('aria-hidden') === 'false') {
-                    searchInputElem.focus();
-                }
             } else if (e.key === 'Escape') {
-                toggleModal(searchModalElem);
+                toggleModal(LauncherElem);
                 currentIndex = -1;
             } else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
                 if (currentIndex === -1 && e.key === 'ArrowDown') {
@@ -85,7 +81,7 @@ document.addEventListener('astro:page-load', () => {
         };
 
         window.addEventListener('keydown', handleKeyDown);
-        closeSearchButtonElem.addEventListener('click', () => toggleModal(searchModalElem));
+        closeSearchButtonElem.addEventListener('click', () => toggleModal(LauncherElem));
 
     }
 });

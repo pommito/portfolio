@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 import Shortcut from "@/components/ui/Shortcut.astro";
 
 import logo from "@/assets/Logo_3D.png"
-import SearchButton from "./SearchModal/SearchButton.astro";
+import LauncherButton from "./Launcher/LauncherButton.astro";
 
 ---
 <header class="mb-16 sm:mb-32">
@@ -15,7 +15,7 @@ import SearchButton from "./SearchModal/SearchButton.astro";
     <nav>
       <ul class="flex items-center gap-3 sm:gap-4">
         <li class="p-1">
-          <SearchButton />
+          <LauncherButton />
         </li>
         <li class="p-1">
           <a href="/about" aria-label="Aller sur la page a propos">
