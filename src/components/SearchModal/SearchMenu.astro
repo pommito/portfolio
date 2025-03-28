@@ -65,11 +65,13 @@ document.addEventListener('astro:page-load', () => {
         const handleKeyDown = (e : KeyboardEvent) => {
             if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
                 toggleModal(searchModalElem);
+                currentIndex = -1;
                 if (searchModalElem.getAttribute('aria-hidden') === 'false') {
                     searchInputElem.focus();
                 }
             } else if (e.key === 'Escape') {
                 toggleModal(searchModalElem);
+                currentIndex = -1;
             } else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
                 if (currentIndex === -1 && e.key === 'ArrowDown') {
                     currentIndex = 0;
