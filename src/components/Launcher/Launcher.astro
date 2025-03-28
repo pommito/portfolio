@@ -1,7 +1,9 @@
 ---
-import LauncherOverlay from "./LauncherOverlay.astro";
-import LauncherListItem from "./LauncherListItem.astro";
 import Shortcut from "../ui/Shortcut.astro";
+import LauncherOverlay from "./LauncherOverlay.astro";
+import LauncherListCategory from "./LauncherListCategory.astro";
+
+import { categories } from "@/data/launcher";
 
 
 ---
@@ -13,37 +15,22 @@ import Shortcut from "../ui/Shortcut.astro";
     tabindex="-1"
     class="relative mx-auto w-full top-20 z-999 max-w-xl  text-neutral-500 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800 inset-ring inset-ring-neutral-950/8 dark:inset-ring-white/2 rounded-lg"
   >
-    <header class="flex items-center justify-between gap-2 px-4 py-4">
-      <span>Launcher</span>
+    <header class="flex items-center justify-between gap-2 text-neutral-800 dark:text-neutral-100 border-b border-neutral-900/5 dark:border-white/5 px-4 py-3">
+      <div class="flex items-center gap-2">
+        <div class="size-2 bg-neutral-800 dark:bg-neutral-100 rounded-full"/> 
+        Launcher
+      </div>
       <button id="close-search-button" class="cursor-pointer">
         <Shortcut>esc</Shortcut>
       </button>
     </header>
     <div class="py-2">
       <ul class="px-2">
-        <li class="">
-          <span class="inline-block text-xs/4 py-2 px-2">Pages</span>
-          <ul class="text-base/4">
-            <LauncherListItem title="Accueil" />
-            <LauncherListItem title="A propos" />
-            <LauncherListItem title="Blog" tagLabel="New" />
-          </ul>
-        </li>
-        <li class="">
-          <span class="inline-block text-xs/4 py-3 px-2">Réglages</span>
-          <ul class="text-base/4">
-            <LauncherListItem title="Changer de thème" />
-            <LauncherListItem title="Changer de langue" />
-          </ul>
-        </li>
-        <li class="">
-          <span class="inline-block text-xs/4 py-3 px-2">Contact</span>
-          <ul class="text-base/4">
-            <LauncherListItem title="Envoyer un email" />
-            <LauncherListItem title="Github" />
-          </ul>
-        </li>
+        {categories.map((category) => <LauncherListCategory label={category.label} entries={category.entries} />)}
       </ul>
+    </div>
+    <div class="flex items-center gap-1 text-xs mx-auto w-fit pb-4">
+      utilise <Shortcut>↓</Shortcut> ou <Shortcut>↑</Shortcut>
     </div>
   </div>
 </LauncherOverlay>
