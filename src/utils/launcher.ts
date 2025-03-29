@@ -23,3 +23,17 @@ export const handleEscShortcut = (e: KeyboardEvent) => {
         }
     }
 }
+
+export const replicateClick = (e: KeyboardEvent) => {
+    const focusedItem = document.activeElement
+    if (!focusedItem || focusedItem.getAttribute('role') !== 'menuitem') return
+
+    const anchor = focusedItem.querySelector('a')
+    if (!anchor) {
+        const button = focusedItem.querySelector('button')
+        e.preventDefault()
+        button?.click()
+    }
+    e.preventDefault()
+    anchor?.click()
+}

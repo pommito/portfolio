@@ -62,7 +62,7 @@ import LauncherListItem from "./LauncherListItem.astro";
 </LauncherOverlay>
 
 <script>
-  import { toggleModal } from '@/utils/launcher';
+  import { toggleModal, replicateClick } from '@/utils/launcher';
   
   document.addEventListener('astro:page-load', () => {
       const LauncherElem = document.getElementById('search-menu');
@@ -85,18 +85,12 @@ import LauncherListItem from "./LauncherListItem.astro";
               if (e.key === 'ArrowDown') {
                   currentIndex = (currentIndex < menuItems.length - 1) ? currentIndex + 1 : currentIndex;
               } else if (e.key === 'ArrowUp') {
-                  currentIndex = (currentIndex > 0) ? currentIndex - 1 : currentIndex;
+                  currentIndex = (currentIndex > 0) ? currentIndex - 1 : 0;
               }
               (menuItems[currentIndex] as HTMLElement).focus();
-          } else if (e.key === 'Enter' && LauncherElem.getAttribute('data-state') === 'open') {
-              const focusedItem = document.activeElement;
-              if (focusedItem && focusedItem.getAttribute('role') === 'menuitem') {
-                  const anchor = focusedItem.querySelector('a');
-                  if (anchor) {
-                      e.preventDefault();
-                      anchor.click();
-                  }
-              }
+          } else if (e.key === 'Enter') {
+              if (LauncherElem.getAttribute('data-state') !== 'open') return;
+              replicateClick(e);
           }
       };
   
