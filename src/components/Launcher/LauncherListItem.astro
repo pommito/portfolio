@@ -2,15 +2,17 @@
 import Tag from "@/components/ui/Tag.astro";
 
 type Props = {
+  id: string;
   title: string;
   tagLabel? : string;
   href?: string;
 }
 
-const { title, tagLabel, href } = Astro.props as Props;
+const { id, title, tagLabel, href } = Astro.props as Props;
 ---
 
 <li 
+  id=`launcher${id}`
   tabindex="0"
   role="menuitem"
   class="font-normal text-sm/4 text-neutral-500 dark:text-neutral-400 w-full py-3 px-2 rounded-md focus:outline-none hover:bg-neutral-900/2 dark:hover:bg-white/5 focus:bg-neutral-900/5 dark:focus:bg-white/10"
@@ -29,3 +31,22 @@ const { title, tagLabel, href } = Astro.props as Props;
     </button>
   )}
 </li>
+
+{id === 'ThemeSwitcher' && (
+  <script>
+    import { toggleTheme } from "@/utils/theme";
+    import { toggleModal } from "@/utils/launcher";
+    document.addEventListener('astro:page-load', () => {
+      const themeSwitcherElem = document.getElementById(`launcherThemeSwitcher`);
+      if (themeSwitcherElem) {
+        themeSwitcherElem.addEventListener('click', () => {
+          console.log('clicked');
+          
+          toggleTheme();
+          toggleModal();
+
+        });
+      }
+    });
+  </script>
+)}

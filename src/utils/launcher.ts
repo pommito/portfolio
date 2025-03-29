@@ -1,15 +1,19 @@
-export const toggleModal = (modalElem: HTMLElement) => {
-    const isModalOpen = modalElem.getAttribute('data-state') === 'open'
+export const toggleModal = () => {
+    const LauncherElem = document.getElementById('search-menu')
 
-    if (isModalOpen) {
-        modalElem.setAttribute('data-state', 'close')
-        document.body.setAttribute('data-modal', 'close')
-        window.removeEventListener('keydown', handleEscShortcut)
-    } else {
-        modalElem.setAttribute('data-state', 'open')
+    if (!LauncherElem) return
+    const isModalOpen = LauncherElem.getAttribute('data-state') === 'open'
+
+    if (!isModalOpen) {
+        console.log('toggle modal')
+        LauncherElem.setAttribute('data-state', 'open')
         document.body.setAttribute('data-modal', 'open')
         window.addEventListener('keydown', handleEscShortcut)
+        return
     }
+    LauncherElem.setAttribute('data-state', 'close')
+    document.body.setAttribute('data-modal', 'close')
+    window.removeEventListener('keydown', handleEscShortcut)
 }
 
 export const handleEscShortcut = (e: KeyboardEvent) => {
@@ -17,10 +21,10 @@ export const handleEscShortcut = (e: KeyboardEvent) => {
         const searchMenuElem = document.getElementById('search-menu')
         if (
             searchMenuElem &&
-            searchMenuElem.getAttribute('data-state') === 'open'
-        ) {
-            toggleModal(searchMenuElem)
-        }
+            searchMenuElem.getAttribute('data-state') === 'close'
+        )
+            return
+        toggleModal()
     }
 }
 
