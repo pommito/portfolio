@@ -1,29 +1,30 @@
 export const toggleModal = () => {
+    console.log('toggleModal trigger')
+
     const LauncherElem = document.getElementById('search-menu')
 
     if (!LauncherElem) return
     const isModalOpen = LauncherElem.getAttribute('data-state') === 'open'
 
-    if (!isModalOpen) {
-        console.log('toggle modal')
-        LauncherElem.setAttribute('data-state', 'open')
+    if (isModalOpen) {
+        console.log('Closing launcher.', isModalOpen)
+
+        document.body.setAttribute('data-modal', 'close')
+        LauncherElem.setAttribute('data-state', 'close')
+    } else {
+        console.log('Opening launcher.', isModalOpen)
         document.body.setAttribute('data-modal', 'open')
-        window.addEventListener('keydown', handleEscShortcut)
-        return
+        LauncherElem.setAttribute('data-state', 'open')
     }
-    LauncherElem.setAttribute('data-state', 'close')
-    document.body.setAttribute('data-modal', 'close')
-    window.removeEventListener('keydown', handleEscShortcut)
 }
 
 export const handleEscShortcut = (e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-        const searchMenuElem = document.getElementById('search-menu')
-        if (
-            searchMenuElem &&
-            searchMenuElem.getAttribute('data-state') === 'close'
-        )
-            return
+    console.log('handleEscShortcut')
+
+    if (e.key !== 'Escape') return
+    const searchMenuElem = document.getElementById('search-menu')
+    if (searchMenuElem?.getAttribute('data-state') === 'open') {
+        console.log('handleEscShortcut triggered')
         toggleModal()
     }
 }

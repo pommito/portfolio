@@ -38,15 +38,14 @@ const { id, title, tagLabel, href } = Astro.props as Props;
     import { toggleModal } from "@/utils/launcher";
     document.addEventListener('astro:page-load', () => {
       const themeSwitcherElem = document.getElementById(`launcherThemeSwitcher`);
-      if (themeSwitcherElem) {
-        themeSwitcherElem.addEventListener('click', () => {
-          console.log('clicked');
-          
-          toggleTheme();
-          toggleModal();
+      
+      if (!themeSwitcherElem) return;
+      themeSwitcherElem.addEventListener('click', () => {          
+        toggleTheme();
+        toggleModal();
 
-        });
-      }
+      });
+      
     });
   </script>
 )}
