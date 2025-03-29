@@ -11,14 +11,13 @@
 
 <script>
 import { toggleModal } from "@/utils/launcher";
-
-const searchButtonElem = document.getElementById('search-button');
-const LauncherElem = document.getElementById('search-menu');
-
-
-if (searchButtonElem && LauncherElem) {
+document.addEventListener('astro:page-load', () => {
+  const searchButtonElem = document.getElementById('search-button');
+  if (!searchButtonElem) return;
+  
   searchButtonElem.addEventListener('click', (e) => {
     toggleModal();
   });
-}
+});
+
 </script>
