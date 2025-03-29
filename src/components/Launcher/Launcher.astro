@@ -4,6 +4,7 @@ import LauncherOverlay from "./LauncherOverlay.astro";
 import LauncherListCategory from "./LauncherListCategory.astro";
 
 import { categories } from "@/data/launcher";
+import LauncherListItem from "./LauncherListItem.astro";
 
 
 ---
@@ -26,7 +27,19 @@ import { categories } from "@/data/launcher";
     </header>
     <div class="py-2">
       <ul class="px-2">
-        {categories.map((category) => <LauncherListCategory label={category.label} entries={category.entries} />)}
+        <LauncherListCategory label="Pages">
+          <LauncherListItem title="Accueil" />
+          <LauncherListItem title="A propos" />
+          <LauncherListItem title="Blog" tagLabel="New" />
+        </LauncherListCategory>
+        <LauncherListCategory label="Réglages">
+          <LauncherListItem title="Changer de thème" />
+          <LauncherListItem title="Changer de langue" />
+        </LauncherListCategory>
+        <LauncherListCategory label="Contact">
+          <LauncherListItem title="Envoyer un email" />
+          <LauncherListItem title="Github" />
+        </LauncherListCategory>
       </ul>
     </div>
     <div class="flex items-center gap-1 text-xs mx-auto w-fit pb-4">

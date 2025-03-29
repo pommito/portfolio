@@ -1,17 +1,14 @@
 ---
-import LauncherListItem from "./LauncherListItem.astro";
-
 type Props = {
   label: string;
-  entries: string[];
 }
 
-const { label, entries } = Astro.props as Props;
+const { label } = Astro.props as Props;
 ---
 
 <li>
   <span class="inline-block text-xs/4 py-2 px-2">{label}</span>
   <ul class="text-base/4">
-    {entries.map((entry) => <LauncherListItem title={entry} />)}
+    <slot />
   </ul>
 </li>
