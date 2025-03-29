@@ -62,40 +62,47 @@ import LauncherListItem from "./LauncherListItem.astro";
 </LauncherOverlay>
 
 <script>
-import { toggleModal } from '@/utils/launcher';
-
-document.addEventListener('astro:page-load', () => {
-    const LauncherElem = document.getElementById('search-menu');
-    const closeSearchButtonElem = document.getElementById('close-search-button');
-    const menuItems = document.querySelectorAll('[role="menuitem"]');
-    let currentIndex = -1;
-
-    if (LauncherElem && closeSearchButtonElem) {
-        const handleKeyDown = (e : KeyboardEvent) => {
-            if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
-              console.log('pressed');
-              
-                toggleModal(LauncherElem);
-                currentIndex = -1;
-            } else if (e.key === 'Escape') {
-                toggleModal(LauncherElem);
-                currentIndex = -1;
-            } else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-                if (currentIndex === -1 && e.key === 'ArrowDown') {
-                    currentIndex = 0;
-                } else if (e.key === 'ArrowUp' && currentIndex > 0) {
-                    currentIndex--;
-                } else if (e.key === 'ArrowDown' && currentIndex < menuItems.length - 1) {
-                    currentIndex++;
-                }
-                (menuItems[currentIndex] as HTMLElement).focus();
-            }
-        };
-
-        window.addEventListener('keydown', handleKeyDown);
-        closeSearchButtonElem.addEventListener('click', () => toggleModal(LauncherElem));
-
-    }
-});
-
+  import { toggleModal } from '@/utils/launcher';
+  
+  document.addEventListener('astro:page-load', () => {
+      const LauncherElem = document.getElementById('search-menu');
+      const closeSearchButtonElem = document.getElementById('close-search-button');
+      const menuItems = document.querySelectorAll('[role="menuitem"]');
+  
+      let currentIndex = -1;
+  
+      if (!LauncherElem || !closeSearchButtonElem) return;
+  
+      const handleKeyDown = (e : KeyboardEvent) => {
+          if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+              toggleModal(LauncherElem);
+              currentIndex = -1;
+          } else if (e.key === 'Escape') {
+              if (LauncherElem.getAttribute('data-state') !== 'open') return;
+              toggleModal(LauncherElem)
+              currentIndex = -1;
+          } else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+              if (e.key === 'ArrowDown') {
+                  currentIndex = (currentIndex < menuItems.length - 1) ? currentIndex + 1 : currentIndex;
+              } else if (e.key === 'ArrowUp') {
+                  currentIndex = (currentIndex > 0) ? currentIndex - 1 : currentIndex;
+              }
+              (menuItems[currentIndex] as HTMLElement).focus();
+          } else if (e.key === 'Enter' && LauncherElem.getAttribute('data-state') === 'open') {
+              const focusedItem = document.activeElement;
+              if (focusedItem && focusedItem.getAttribute('role') === 'menuitem') {
+                  const anchor = focusedItem.querySelector('a');
+                  if (anchor) {
+                      e.preventDefault();
+                      anchor.click();
+                  }
+              }
+          }
+      };
+  
+      window.removeEventListener('keydown', handleKeyDown);
+      window.addEventListener('keydown', handleKeyDown);
+      closeSearchButtonElem.addEventListener('click', () => toggleModal(LauncherElem));
+  });
 </script>
+  
