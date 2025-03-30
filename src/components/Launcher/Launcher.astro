@@ -30,7 +30,7 @@ import LauncherListItem from "./LauncherListItem.astro";
           <LauncherListItem id="LinkTo" title="A propos" href="/about">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
           </LauncherListItem>
-          <LauncherListItem id="LinkTo" title="Blog" href="/blog" tagLabel="New">
+          <LauncherListItem id="LinkTo" title="Blog" href="/blog" tagLabel="Nouveau">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4"><rect width="8" height="18" x="3" y="3" rx="1"/><path d="M7 3v18"/><path d="M20.4 18.9c.2.5-.1 1.1-.6 1.3l-1.9.7c-.5.2-1.1-.1-1.3-.6L11.1 5.1c-.2-.5.1-1.1.6-1.3l1.9-.7c.5-.2 1.1.1 1.3.6Z"/></svg>
           </LauncherListItem>
         </LauncherListCategory>
@@ -46,7 +46,7 @@ import LauncherListItem from "./LauncherListItem.astro";
           <LauncherListItem id="ThemeSwitcher" title="Changer de thème">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
           </LauncherListItem>
-          <LauncherListItem id="LanguageSwitcher" title="Changer de langue">
+          <LauncherListItem id="LanguageSwitcher" title="Changer de langue" tagLabel="Bientôt disponible">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
           </LauncherListItem>
         </LauncherListCategory>
@@ -58,13 +58,16 @@ import LauncherListItem from "./LauncherListItem.astro";
   </div>
 </LauncherOverlay>
 
+
 <script>
+  // TODO : Refactor this
+
   import { toggleModal, replicateClick } from '@/utils/launcher';
 
   let handleKeyDown : (e : KeyboardEvent) => void;
+  let handleClickOutside : (e : MouseEvent) => void;
 
   document.addEventListener('astro:page-load', () => {
-      console.log('Page loaded, setting up launcher.');
       const LauncherElem = document.getElementById('search-menu');
       const closeSearchButtonElem = document.getElementById('close-search-button');
       let menuItems = document.querySelectorAll('[role="menuitem"]');
@@ -97,13 +100,26 @@ import LauncherListItem from "./LauncherListItem.astro";
           }
       };
 
+      handleClickOutside = (event: MouseEvent) => {
+        const LauncherModalElem = LauncherElem.querySelector('[role="dialog"]');
+        if (!LauncherModalElem) return;
+
+        if (LauncherElem.contains(event.target as Node) && !LauncherModalElem.contains(event.target as Node)) {
+          toggleModal();
+          currentIndex = -1;
+        };
+      };
+
       window.addEventListener('keydown', handleKeyDown);
+      window.addEventListener('click', handleClickOutside);
       closeSearchButtonElem.addEventListener('click', toggleModal);
   });
 
+  // Make sur that eventlistsener is removed before the view transition swap
   document.addEventListener('astro:before-swap', () => {
       if (handleKeyDown) {
           window.removeEventListener('keydown', handleKeyDown);
+          window.removeEventListener('click', handleClickOutside);
       }
       const closeSearchButtonElem = document.getElementById('close-search-button');
       if (closeSearchButtonElem) {

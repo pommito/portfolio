@@ -24,7 +24,7 @@ const { id, title, tagLabel, href } = Astro.props as Props;
       {tagLabel && <Tag label={tagLabel} />}
     </a>
   ) : (
-    <button type="button" class="text-left inline-flex items-center gap-2 w-full">
+    <button type="button" class="text-left inline-flex items-center gap-2 w-full cursor-pointer">
       <slot />
       <span class="flex-1">{title}</span>
       {tagLabel && <Tag label={tagLabel} />}
