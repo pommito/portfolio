@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 
 import Layout from "@/layouts/Layout.astro";
 import SocialLinks from "@/components/SocialLinks.astro";
@@ -7,8 +8,7 @@ import WorkExperience from "@/components/WorkExperience.astro";
 
 import image from "@/assets/about.jpg";
 
-
-
+const experiences = await getCollection('experiences');
 
 ---
 
@@ -25,8 +25,9 @@ import image from "@/assets/about.jpg";
   
   <div class="space-y-2 mt-12 sm:mt-16">
     <h2 class="text-neutral-500 mb-6">[ Experiences ]</h2>
-    <WorkExperience />
-    <WorkExperience />
+    {experiences.map((experience) => (
+      <WorkExperience experience={experience} />
+    ))}
 	</div>
   
   <div class="mt-12 sm:mt-16">
