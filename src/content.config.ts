@@ -3,13 +3,11 @@ import { z, defineCollection } from 'astro:content'
 
 const projects = defineCollection({
     loader: glob({ pattern: '**/*.{md,mdx}', base: './src/data/projects' }),
-    schema: ({ image }) =>
-        z.object({
-            title: z.string(),
-            description: z.string(),
-            Illustration: image(),
-            link: z.string(),
-        }),
+    schema: z.object({
+        title: z.string(),
+        description: z.string(),
+        link: z.string(),
+    }),
 })
 
 const experiences = defineCollection({
