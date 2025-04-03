@@ -2,6 +2,7 @@
 
 import IconLightfile from "@/data/projects/assets/icon_lightfile.svg"
 import IconDigitalp from "@/data/projects/assets/icon_digitalp.svg"
+import IconWepeak from "@/data/projects/assets/icon_wepeak.svg"
 
 type Props = {
   title: string;
@@ -18,6 +19,9 @@ switch (title) {
     break;
   case 'Digitalp':
     Illustration = IconDigitalp;
+    break;
+  case 'WePeak':
+    Illustration = IconWepeak;
     break;
   default:
     Illustration = IconDigitalp;
