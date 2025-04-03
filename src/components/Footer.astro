@@ -9,12 +9,18 @@ const year = new Date().getFullYear();
 </footer>
 
 <script>
-  import { toggleTheme } from "../../src/utils/theme";
+  import { toggleTheme, checkSavedTheme ,saveThemeChoice } from "../../src/utils/theme";
+
   document.addEventListener('astro:page-load', () => {
     const themeSwitcherElem = document.getElementById('themeSwitcher');
+    
+    checkSavedTheme();
+
     if (themeSwitcherElem) {
-      themeSwitcherElem.addEventListener('click', toggleTheme);
+      themeSwitcherElem.addEventListener('click', () => {
+        toggleTheme();
+        saveThemeChoice();
+      });
     }
-});
-  
+  });
 </script>

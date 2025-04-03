@@ -34,7 +34,7 @@ const { id, title, tagLabel, href } = Astro.props as Props;
 
 {id === 'ThemeSwitcher' && (
   <script>
-    import { toggleTheme } from "@/utils/theme";
+    import { toggleTheme, saveThemeChoice } from "@/utils/theme";
     import { toggleModal } from "@/utils/launcher";
     document.addEventListener('astro:page-load', () => {
       const themeSwitcherElem = document.getElementById(`launcherThemeSwitcher`);
@@ -42,6 +42,7 @@ const { id, title, tagLabel, href } = Astro.props as Props;
       if (!themeSwitcherElem) return;
       themeSwitcherElem.addEventListener('click', () => {          
         toggleTheme();
+        saveThemeChoice();
         toggleModal();
 
       });

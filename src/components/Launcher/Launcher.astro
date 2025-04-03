@@ -77,7 +77,6 @@ import LauncherListItem from "./LauncherListItem.astro";
       if (!LauncherElem || !closeSearchButtonElem) return;
 
       handleKeyDown = (e : KeyboardEvent) => {
-          console.log('handleKeyDown triggered');
           if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
               toggleModal();
               currentIndex = -1;
@@ -91,8 +90,6 @@ import LauncherListItem from "./LauncherListItem.astro";
               } else if (e.key === 'ArrowUp') {
                   currentIndex = (currentIndex > 0) ? currentIndex - 1 : 0;
               }
-              console.log('Current Index:', currentIndex);
-              console.log('Focusing element:', menuItems[currentIndex]);
               (menuItems[currentIndex] as HTMLElement).focus();
           } else if (e.key === 'Enter') {
               if (LauncherElem.getAttribute('data-state') !== 'open') return;
