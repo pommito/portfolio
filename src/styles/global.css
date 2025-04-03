@@ -18,6 +18,16 @@ p {
     @apply mt-6 font-light text-pretty;
 }
 
+/* Styling for the blog articles content 
+ */
 #article-content h2 {
-    @apply text-3xl;
+    @apply my-5 text-xl;
+}
+
+#article-content h3 {
+    @apply my-3 text-lg;
+}
+
+#article-content p {
+    @apply mt-0 opacity-90;
 }
