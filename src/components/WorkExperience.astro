@@ -22,8 +22,8 @@ const displayedEndDate = new Date(endDate).toLocaleDateString("fr-FR", { month: 
   </div>
   <span class="text-xs/4 sm:order-3">{displayedStartDate} - {displayedEndDate}</span>
   <div class="flex-1">
-    <h3 class="">{title}</h3>
-    <a href={companyUrl} target="_blank" class="text-sm text-neutral-500">{company}</a>
+    <h3 class=""><a href={companyUrl} target="_blank">{company}</a></h3>
+    <h4 class="text-sm text-neutral-500">{title}</h4>
     <p class="text-sm !mt-0">{description}</p>
     <div class="space-x-1">
       {tags.map((tag) => (
