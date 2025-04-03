@@ -25,7 +25,17 @@ const experiences = defineCollection({
         }),
 })
 
+const articles = defineCollection({
+    loader: glob({ pattern: '**/*.{md,mdx}', base: './src/data/articles' }),
+    schema: z.object({
+        title: z.string(),
+        date: z.date(),
+        tags: z.array(z.string()),
+    }),
+})
+
 export const collections = {
     projects,
     experiences,
+    articles,
 }
