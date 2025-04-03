@@ -20,6 +20,14 @@ import Launcher from '@/components/Launcher/Launcher.astro';
 		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Victor Lebecq</title>
+		<script>
+			(function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.body.setAttribute('data-theme', savedTheme);
+      }
+    	})();
+		</script>
 		<ClientRouter />
 	</head>
 
@@ -36,5 +44,13 @@ import Launcher from '@/components/Launcher/Launcher.astro';
 		<Launcher />
 	</body>
 
+	<script>
+		import { checkSavedTheme } from "@/utils/theme";
+		document.addEventListener('astro:page-load', () => {
+			checkSavedTheme();
+		});
+	</script>
 </html>
+
+
 

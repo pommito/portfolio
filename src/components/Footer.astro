@@ -13,8 +13,6 @@ const year = new Date().getFullYear();
 
   document.addEventListener('astro:page-load', () => {
     const themeSwitcherElem = document.getElementById('themeSwitcher');
-    
-    checkSavedTheme();
 
     if (themeSwitcherElem) {
       themeSwitcherElem.addEventListener('click', () => {
