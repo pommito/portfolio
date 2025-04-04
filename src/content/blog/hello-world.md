@@ -4,7 +4,7 @@ date: 2023-01-01
 tags:
     - React
     - AstroJS
-state: published
+published: true
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam.

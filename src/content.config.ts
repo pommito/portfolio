@@ -34,7 +34,7 @@ const blog = defineCollection({
         title: z.string(),
         date: z.date(),
         tags: z.array(z.string()),
-        state: z.enum(['draft', 'published']),
+        published: z.boolean(),
     }),
 })
 
