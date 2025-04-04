@@ -1,12 +1,20 @@
 ---
 import { ClientRouter } from 'astro:transitions';
+
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Launcher from '@/components/Launcher/Launcher.astro';
+import Seo from '@/components/Seo.astro';
 
 import '../styles/global.css';
-import Launcher from '@/components/Launcher/Launcher.astro';
 
+type Props = {
+	title: string;
+	metaTitle?: string;
+	metaDescription: string;
+}
 
+const { title, metaTitle, metaDescription } = Astro.props as Props;
 
 
 
@@ -17,9 +25,7 @@ import Launcher from '@/components/Launcher/Launcher.astro';
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Victor Lebecq</title>
+		<Seo title={title} metaTitle={metaTitle} metaDescription={metaDescription} />
 		<script>
 			(function() {
       const savedTheme = localStorage.getItem('theme');
