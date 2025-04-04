@@ -12,6 +12,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendi
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam.
 
+![Photo à ajouter dans un article](../../assets/about.JPG)
+
 ### Lorem ipsum dolor sit amet
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam.
@@ -20,6 +22,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendi
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
-## Lorem ipsum dolor sit amet
+```js
+const helloWorld = 'Hello World'
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam.
+console.log(helloWorld)
+```
+
+- ## React
+    - ### ReactJS
+- ## AstroJS

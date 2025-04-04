@@ -1,31 +1,34 @@
 ---
+import type { CollectionEntry } from 'astro:content';
 import Tag from './ui/Tag.astro';
 
 
 type Props = {
-  title: string;
-  date: string;
-  categories: string[];
-  slug: string;
+  article: CollectionEntry<'articles'>;
 }
 
-const { title, date, categories, slug = '#' } = Astro.props as Props;
+const { article } = Astro.props as Props;
+console.log(article);
+
+const { title, date, tags } = article.data;
+
+const formatedDate = new Date(date).toLocaleDateString("fr-FR");
 
 ---
 
 <article class="relative isolate flex items-center rounded-xl p-2 -ml-2 transition-all ease-in duration-300 group-hover:not-hover:opacity-20 group-hover:has-hover:scale-102">
   <div class="flex-1">
     <h3 class="">
-      <a href={slug}>
+      <a href={`/blog/${article.id}`}>
         <span class="absolute inset-0 z-10"></span>
         {title}
       </a>
     </h3>
     <div class="space-x-1">
-      {categories.map((category) => (
-        <Tag label={category} />
+      {tags.map((tag) => (
+        <Tag label={tag} />
       ))}
     </div>
   </div>
-  <time class="text-sm"><span>{date}</span></time>
+  <time datetime={formatedDate} class="text-sm"><span>{formatedDate}</span></time>
 </article>

@@ -1,8 +1,9 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import BlogArticle from "@/components/BlogArticle.astro";
+import { getCollection } from "astro:content";
 
-
+const articles = await getCollection("articles");
 
 ---
 
@@ -11,10 +12,8 @@ import BlogArticle from "@/components/BlogArticle.astro";
 	<h2 class="text-neutral-500">Je documente ma veille et mon activité de freelance</h2>
   
   <div class="group mt-12 sm:mt-16">
-    <BlogArticle title='Lorem ipsum dolor sit amet' date='2023-01-01' categories={['React', 'Wordpress', 'AstroJS']} slug="#" />
-    <BlogArticle title='Lorem ipsum dolor sit amet' date='2023-01-01' categories={['React', 'Wordpress', 'AstroJS']} slug="#" />
-    <BlogArticle title='Lorem ipsum dolor sit amet' date='2023-01-01' categories={['React', 'Wordpress', 'AstroJS']} slug="#" />
-    <BlogArticle title='Lorem ipsum dolor sit amet' date='2023-01-01' categories={['React', 'Wordpress', 'AstroJS']} slug="#" />
-    <BlogArticle title='Lorem ipsum dolor sit amet' date='2023-01-01' categories={['React', 'Wordpress', 'AstroJS']} slug="#" />
+    {articles.map((article) => (
+      <BlogArticle article={article} />
+    ))}
 	</div>
 </Layout>

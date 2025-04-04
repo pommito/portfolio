@@ -7,6 +7,7 @@ import ProjectCard from '@/components/ProjectCard.astro';
 import BlogArticle from '@/components/BlogArticle.astro';
 
 const projects = await getCollection('projects');
+const articles = await getCollection('articles');
 
 ---
 
@@ -29,11 +30,9 @@ const projects = await getCollection('projects');
 	<div class="mt-12 sm:mt-16">
 		<h2 class="text-neutral-500 mb-6">[ Blog ]</h2>
 		<div class="group">
-			<BlogArticle title='Lorem ipsum dolor sit amet' date='2023-01-01' categories={['React', 'AstroJS']} slug='#' />
-			<BlogArticle title='Lorem ipsum dolor sit amet' date='2023-01-01' categories={['React', 'AstroJS']} slug='#' />
-			<BlogArticle title='Lorem ipsum dolor sit amet' date='2023-01-01' categories={['React', 'AstroJS']} slug='#' />
-			<BlogArticle title='Lorem ipsum dolor sit amet' date='2023-01-01' categories={['React', 'AstroJS']} slug='#' />
-			<BlogArticle title='Lorem ipsum dolor sit amet' date='2023-01-01' categories={['React', 'AstroJS']} slug='#' />
+			{articles.map((article) => (
+				<BlogArticle article={article} />
+			))}
 		</div>
 	</div>
 	
