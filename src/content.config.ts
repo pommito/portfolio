@@ -23,7 +23,7 @@ const experiences = defineCollection({
             companyUrl: z.string(),
             description: z.string(),
             startDate: z.date(),
-            endDate: z.date(),
+            endDate: z.date().or(z.literal('Présent')),
             tags: z.array(z.string()),
         }),
 })

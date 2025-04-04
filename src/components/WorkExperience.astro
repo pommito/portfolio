@@ -12,7 +12,9 @@ const { experience } = Astro.props as Props;
 const { title, company, companyLogo, companyUrl, description, startDate, endDate, tags } = experience.data;
 
 const displayedStartDate = new Date(startDate).toLocaleDateString("fr-FR", { month: 'numeric', year: 'numeric' });
-const displayedEndDate = new Date(endDate).toLocaleDateString("fr-FR", { month: 'numeric', year: 'numeric' });
+const displayedEndDate = endDate === 'Présent' ? 'Présent' : new Date(endDate).toLocaleDateString("fr-FR", { month: 'numeric', year: 'numeric' });
+
+
 ---
 
 
