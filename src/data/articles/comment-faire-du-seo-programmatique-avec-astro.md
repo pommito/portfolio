@@ -1,10 +1,10 @@
 ---
-title: Hello World
-date: 2023-01-01
+title: Comment faire du SEO programmatique avec AstroJS
+date: 2025-04-04
 tags:
-    - React
     - AstroJS
-state: published
+    - SEO
+state: draft
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam.

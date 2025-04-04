@@ -8,9 +8,8 @@ type Props = {
 }
 
 const { article } = Astro.props as Props;
-console.log(article);
 
-const { title, date, tags } = article.data;
+const { title, date, tags, state } = article.data;
 
 const formatedDate = new Date(date).toLocaleDateString("fr-FR");
 
@@ -19,10 +18,14 @@ const formatedDate = new Date(date).toLocaleDateString("fr-FR");
 <article class="relative isolate flex items-center rounded-xl p-2 -ml-2 transition-all ease-in duration-300 group-hover:not-hover:opacity-20 group-hover:has-hover:scale-102">
   <div class="flex-1">
     <h3 class="">
-      <a href={`/blog/${article.id}`}>
-        <span class="absolute inset-0 z-10"></span>
-        {title}
-      </a>
+      {state === 'published' ? (
+            <a href={`/blog/${article.id}`}>
+                  <span class="absolute inset-0 z-10"></span>
+                  {title}
+            </a>
+      ) : (
+            <span>{title}</span>
+      )}
     </h3>
     <div class="space-x-1">
       {tags.map((tag) => (
@@ -30,5 +33,9 @@ const formatedDate = new Date(date).toLocaleDateString("fr-FR");
       ))}
     </div>
   </div>
-  <time datetime={formatedDate} class="text-sm"><span>{formatedDate}</span></time>
+  {state === 'published' ? (
+    <time datetime={formatedDate} class="text-sm"><span>{formatedDate}</span></time>
+  ) : (
+    <span class="text-sm text-neutral-500">Bientôt disponible</span>
+  )}
 </article>
