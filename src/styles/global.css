@@ -50,5 +50,5 @@ p {
 }
 
 #article-content pre {
-    @apply relative my-4 rounded p-4;
+    @apply relative my-4 rounded p-4 text-sm;
 }
