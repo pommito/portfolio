@@ -15,16 +15,16 @@ const { id, title, tagLabel, href } = Astro.props as Props;
   id=`launcher${id}`
   tabindex="0"
   role="menuitem"
-  class="font-normal text-sm/4 text-neutral-500 dark:text-neutral-400 w-full py-3 px-2 rounded-md focus:outline-none hover:bg-neutral-900/2 dark:hover:bg-white/5 focus:bg-neutral-900/5 dark:focus:bg-white/10"
+  class="font-normal text-sm/4 text-neutral-500 dark:text-neutral-400 w-full rounded-md focus:outline-none hover:bg-neutral-900/2 dark:hover:bg-white/5 focus:bg-neutral-900/5 dark:focus:bg-white/10"
 >
   {href ? (
-    <a href={href} class="inline-flex items-center gap-2 w-full">
+    <a href={href} class="inline-flex items-center py-3 px-2 gap-2 w-full">
       <slot />
       <span class="flex-1">{title}</span>
       {tagLabel && <Tag label={tagLabel} />}
     </a>
   ) : (
-    <button type="button" class="text-left inline-flex items-center gap-2 w-full cursor-pointer">
+    <button type="button" class="text-left inline-flex items-center py-3 px-2 gap-2 w-full cursor-pointer">
       <slot />
       <span class="flex-1">{title}</span>
       {tagLabel && <Tag label={tagLabel} />}
