@@ -1,9 +1,13 @@
 ---
 import { getCollection, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
 import Layout from "@/layouts/Layout.astro";
 import Tag from "@/components/ui/Tag.astro";
 
+type Props = {
+  article: CollectionEntry<"blog">;
+};
 
 export async function getStaticPaths() {
   const articles = await getCollection("blog");
@@ -19,8 +23,7 @@ const { Content } = await render(article);
 
 const { title, date, tags } = article.data;
 
-
-const formatedDate = new Date(date).toLocaleDateString("fr-FR");
+const formatedDate = date.toLocaleString('fr');
 
 ---
 
