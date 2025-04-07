@@ -18,7 +18,7 @@ p {
     @apply mt-6 font-light text-pretty;
 }
 
-/* Styling for the blog articles content 
+/* Styling for the blog articles content
  */
 #article-content h2 {
     @apply my-5 text-xl;
@@ -29,7 +29,7 @@ p {
 }
 
 #article-content p {
-    @apply mt-0 opacity-90;
+    @apply my-6 mt-0 leading-relaxed opacity-90;
 }
 
 #article-content img {

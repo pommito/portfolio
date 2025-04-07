@@ -23,7 +23,7 @@ const { Content } = await render(article);
 
 const { title, date, tags } = article.data;
 
-const formatedDate = new Date(date).toLocaleDateString("fr-FR");
+const formatedDate = new Date(date).toLocaleDateString("fr-FR", { year: 'numeric', month: 'long', day: 'numeric' });
 
 ---
 
@@ -39,7 +39,7 @@ const formatedDate = new Date(date).toLocaleDateString("fr-FR");
       <Tag label={tag} />
     ))}
   </ul>
-  
+
   <div id="article-content" class="group mt-12 sm:mt-16">
     <Content  />
 	</div>
