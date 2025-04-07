@@ -23,7 +23,19 @@ const breadcrumbSchema = {
   }))
 };
 
-console.log(breadcrumbs[0]);
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Victor Lebecq - Développeur web à Chambéry et Grenoble",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "13"
+    }
+  }
+</script>

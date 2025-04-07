@@ -20,7 +20,7 @@ Cette expérience m'a vraiment beaucoup plu et je décide, le soir après le tra
 
 Je trouve mon premier client dans les commentaires d'un post Facebook (*comme quoi tout est possible*) et petit à petit, je commence à travailler pour quelques clients le soir et les week-ends. C'est la première fois que je suis payé pour faire quelque chose qui m'amuse.
 
-À la suite de mon master, je décide de me payer une formation de 6 mois de développeur web et web mobile que je suis tout en continuant mes missions pour mes clients. WordPress en no code c'est bien, comprendre ce qu'il se passe derrière c'est mieux.
+À la suite de mon master, je décide de me payer une formation de 6 mois de développeur web et web mobile, que je suis tout en continuant mes missions pour mes clients. WordPress en no code c'est bien, comprendre ce qu'il se passe derrière c'est mieux.
 
 Depuis cette formation, je suis freelance à plein temps sur des projets variés qui me permettent de progresser et de constamment découvrir de nouvelles choses.
 
