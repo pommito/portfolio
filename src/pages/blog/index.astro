@@ -3,7 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 import BlogCard from "@/components/BlogCard.astro";
 import { getCollection } from "astro:content";
 
-const articles = await getCollection("blog");
+const articles = await getCollection("blog", ({ data }) => data.published === true);
 
 ---
 
@@ -14,7 +14,7 @@ const articles = await getCollection("blog");
 >
   <h1 class="text-2xl">Blog</h1>
 	<h2 class="text-neutral-500">Je documente ma veille et mon activité de freelance</h2>
-  
+
   <div class="group mt-12 sm:mt-16">
     {articles.map((article) => (
       <BlogCard article={article} />
