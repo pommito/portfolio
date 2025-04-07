@@ -1,0 +1,29 @@
+---
+const { pathname } = Astro.url;
+const paths = pathname.split("/").filter(segment => segment);
+
+const breadcrumbs = paths.map((segment, index) => {
+    const breadcrumbPath = '/' + paths.slice(0, index + 1).join('/');
+    return {
+        name: segment,
+        path: breadcrumbPath
+    };
+});
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbs.map((breadcrumb, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@id": breadcrumb.path,
+      "name": breadcrumb.name
+    }
+  }))
+};
+
+console.log(breadcrumbs[0]);
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />

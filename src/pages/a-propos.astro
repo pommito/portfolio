@@ -3,7 +3,6 @@ import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
 import Layout from "@/layouts/Layout.astro";
-import SocialLinks from "@/components/SocialLinks.astro";
 import WorkExperience from "@/components/WorkExperience.astro";
 
 import image from "@/assets/about.jpg";
@@ -12,9 +11,9 @@ const experiences = await getCollection('experiences');
 
 ---
 
-<Layout 
-  title="A propos ・Victor Lebecq" 
-  metaTitle="A propos・Victor Lebecq" 
+<Layout
+  title="A propos ・Victor Lebecq"
+  metaTitle="A propos・Victor Lebecq"
   metaDescription="Développeur web base à Chambéry qui aime donner vie à des projets impactant et durables."
 >
 
@@ -24,17 +23,17 @@ const experiences = await getCollection('experiences');
     Depuis tout petit, j'aime construire des choses, que ce soit avec du code ou avec mes mains. Quand je rencontre un problème, je veux lui trouver une solution. Aujourd'hui je met cette envie au service de mes clients en développant des solutions digitales venant répondre à leurs besoins.
 	</p>
   <p>
-    Quand je ne suis pas entrain de coder, je suis probablement entrain d'explorer les alpes à ski ou à pieds. 
+    Quand je ne suis pas entrain de coder, je suis probablement entrain d'explorer les alpes à ski ou à pieds.
   </p>
   <Image src={image} alt="About" width="1280" height="720" class="mt-6 rounded" />
-  
+
   <div class="space-y-2 mt-12 sm:mt-16">
     <h2 class="text-neutral-500 mb-6">[ Experiences ]</h2>
     {experiences.map((experience) => (
       <WorkExperience experience={experience} />
     ))}
 	</div>
-  
+
   <div class="mt-12 sm:mt-16">
     <h2 class="text-neutral-500 mb-6">[ Technos ]</h2>
 		<p class="">
@@ -49,9 +48,5 @@ const experiences = await getCollection('experiences');
     </div>
 	</div>
 
-  <div class="mt-12 sm:mt-16">
-    <h2 class="text-neutral-500 mb-6">[ Catch me if you can ]</h2>
-    <p>Une question ? Un projet ? Trouvez moi sur mes différents réseaux ou par <a href="mailto:victor.lebecq.pro@gmail.com" class="font-bold">mail</a>.</p>
-    <SocialLinks />
-	</div>
+
 </Layout>

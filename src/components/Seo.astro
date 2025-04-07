@@ -1,5 +1,6 @@
 ---
 import ogImage from '@/../public/assets/images/og-image.png';
+import Breadcrumb from './ui/Breadcrumb.astro';
 
 type Props = {
   title: string;
@@ -46,3 +47,5 @@ const { title, metaTitle, metaDescription } = Astro.props
     }
   }
 </script>
+
+<Breadcrumb />
