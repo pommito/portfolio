@@ -1,0 +1,23 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import BlogCard from "@/components/BlogCard.astro";
+import { getCollection } from "astro:content";
+
+const articles = await getCollection("blog", ({ data }) => data.published === true);
+
+---
+
+<Layout
+  title="Blog・Victor Lebecq"
+  metaTitle="Blog・Victor Lebecq"
+  metaDescription="Bienvenue sur mon blog, un endroit ou je documente et partage ma veille ainsi que mon activité de freelance dans le développement web."
+>
+  <h1 class="text-2xl">Blog</h1>
+	<h2 class="text-neutral-500">Je documente ma veille et mon activité de freelance</h2>
+
+  <div class="group mt-12 sm:mt-16">
+    {articles.map((article) => (
+      <BlogCard article={article} />
+    ))}
+	</div>
+</Layout>

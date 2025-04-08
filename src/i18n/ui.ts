@@ -8,14 +8,14 @@ export const showDefaultLang = false
 
 export const routes = {
     fr: {
-        home: '/',
-        about: '/a-propos/',
-        blog: '/blog/',
+        Accueil: '/',
+        'a-propos': 'a-propos',
+        blog: 'blog',
     },
     en: {
-        home: '/',
-        about: '/about/',
-        blog: '/blog/',
+        Accueil: '/',
+        'a-propos': 'about',
+        blog: 'blog',
     },
 }
 
