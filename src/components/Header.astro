@@ -1,13 +1,19 @@
 ---
 import { Image } from "astro:assets";
+import LauncherButton from "./Launcher/LauncherButton.astro";
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
 
 import logo from "@/assets/Logo_3D.png"
-import LauncherButton from "./Launcher/LauncherButton.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
 
 ---
 <header class="mb-16 sm:mb-32">
   <div class="flex items-center justify-between">
-    <a href="/" class="">
+    <a href={translatePath('/')} class="">
       <Image src={logo} alt="Logo de Victor Lebecq" width="100" height="100" class="size-6 object-cover object-center" />
     </a>
     <nav>
@@ -16,12 +22,12 @@ import LauncherButton from "./Launcher/LauncherButton.astro";
           <LauncherButton />
         </li>
         <li class="p-1">
-          <a href="/a-propos" aria-label="Aller sur la page a propos">
-            <span>A propos</span>
+          <a href={translatePath('/a-propos', lang)} aria-label="Aller sur la page a propos">
+            <span>{t('nav.about')}</span>
           </a>
         </li>
         <li class="p-1">
-          <a href="/blog" aria-label="Aller sur le blog">
+          <a href={translatePath('/blog/')} aria-label="Aller sur le blog">
             <span>Blog</span>
           </a>
         </li>
@@ -29,6 +35,3 @@ import LauncherButton from "./Launcher/LauncherButton.astro";
     </nav>
   </div>
 </header>
-
-
-
