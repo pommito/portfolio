@@ -39,6 +39,7 @@ export function getRouteFromUrl(url: URL): string | undefined {
 
     if (defaultLang === currentLang) {
         const route = Object.values(routes)[0]
+        console.log('route if defaultLang : ', route[path])
         return route[path] !== undefined ? route[path] : undefined
     }
 

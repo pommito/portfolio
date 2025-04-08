@@ -1,10 +1,11 @@
 ---
-import { languages } from '../i18n/ui';
+import { languages, supportedLanguages } from '../i18n/ui';
 import { getLangFromUrl, getRouteFromUrl,  useTranslatedPath } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const route = getRouteFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
+
 ---
 <ul class="flex gap-1 uppercase">
   {Object.entries(languages).map(([lang, label]) => (

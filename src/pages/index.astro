@@ -1,13 +1,17 @@
 ---
 import { getCollection } from 'astro:content';
+import { getBlogCollection } from '@/utils/collections';
+import { getLangFromUrl } from '@/i18n/utils';
 
 import Layout from '@/layouts/Layout.astro';
 import SocialLinks from '@/components/SocialLinks.astro';
 import ProjectCard from '@/components/ProjectCard.astro';
 import BlogCard from '@/components/BlogCard.astro';
 
+const lang = getLangFromUrl(Astro.url);
+
 const projects = await getCollection('projects');
-const articles = await getCollection("blog", ({ data }) => data.published === true);
+const articles = await getBlogCollection(lang);
 ---
 
 <Layout

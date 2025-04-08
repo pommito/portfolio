@@ -4,14 +4,10 @@ import { getBlogCollection } from '@/utils/collections';
 
 import Layout from "@/layouts/Layout.astro";
 import BlogCard from "@/components/BlogCard.astro";
-import { getCollection } from 'astro:content';
-
 
 const lang = getLangFromUrl(Astro.url);
 
 const articles = await getBlogCollection(lang);
-
-console.log(articles)
 
 ---
 

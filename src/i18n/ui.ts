@@ -11,11 +11,13 @@ export const routes = {
         Accueil: '/',
         'a-propos': 'a-propos',
         blog: 'blog',
+        'hello-world': 'blog/hello-world',
     },
     en: {
         Accueil: '/',
         'a-propos': 'about',
         blog: 'blog',
+        'blog/hello-world': 'hello-world',
     },
 }
 
