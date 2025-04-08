@@ -1,19 +1,21 @@
 ---
-import { getCollection, render } from "astro:content";
+import { render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 
 import Layout from "@/layouts/Layout.astro";
 import Tag from "@/components/ui/Tag.astro";
+import { getBlogCollection } from "@/utils/collections";
 
 type Props = {
   article: CollectionEntry<"blog">;
 };
 
-export async function getStaticPaths() {
-  const articles = await getCollection("blog");
+export async function getStaticPaths({ lang = "fr" }: { lang?: "fr" | "en" }) {
+  const articles = await getBlogCollection(lang);
+
 
   return articles.map((article) => ({
-    params: { id: article.id },
+    params: { id: article.data.href },
     props: { article },
   }));
 }
@@ -21,9 +23,9 @@ export async function getStaticPaths() {
 const { article } = Astro.props;
 const { Content } = await render(article);
 
-const { title, date, tags } = article.data;
+const { title, publishingDate, tags } = article.data;
 
-const formatedDate = new Date(date).toLocaleDateString("fr-FR", { year: 'numeric', month: 'long', day: 'numeric' });
+const formatedDate = new Date(publishingDate).toLocaleDateString("fr-FR", { year: 'numeric', month: 'long', day: 'numeric' });
 
 ---
 

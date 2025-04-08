@@ -1,9 +1,10 @@
 ---
 title: Hello World
-date: 2025-04-07
+publishingDate: 2025-04-07
 tags:
     - Presentation
 published: true
+href: hello-world
 ---
 
 Bienvenue sur mon site personnel, je m'appelle Victor, je suis développeur web en freelance. Sur ce blog, je vais principalement partager mes apprentissages et mes expériences sur le développement web. Alors pour commencer ce blog comme il se doit, un peu de contexte.
