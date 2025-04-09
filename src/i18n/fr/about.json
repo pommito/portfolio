@@ -1,0 +1,20 @@
+{
+    "title": "A propos",
+    "subTitle": "Actuellement à Grenoble",
+    "text1": "Ever since I was little, I've loved building things, whether with code or with my hands. When I encounter a problem, I want to find a solution. Today I put this desire to work for my clients by developing digital solutions that meet their needs.",
+    "text2": "When I'm not coding, I'm probably exploring the Alps on skis or on foot.",
+    "imageAlt": "A propos de Victor Lebecq",
+    "experience": {
+        "title": "Expérience"
+    },
+    "tech": {
+        "title": "Tech",
+        "text1": "Actuellement je travail principalement avec Wordpress ou des frameworks javascript comme React ou recemment AstroJS dont j'apprecie tout particulièrement la DX (Developer Experience). Pour le styling, après avoir élaborer mes maquettes sur Figma, j'aime utiliser TailwindCSS pour sa simplicité et son efficacité.",
+        "text2": "Avant chaque démarrage, je sélectionne la technologie qui répondra le plus efficacement à mes besoins, tout en minimisant (le plus possible) l'impact du projet sur notre belle planète.",
+        "siteCarbon": "Ce site génère 0.07g de C02 par visite."
+    },
+    "seo": {
+        "title": "A propos・Victor Lebecq",
+        "description": "Développeur web base à Chambéry qui aime donner vie à des projets impactant et durables."
+    }
+}

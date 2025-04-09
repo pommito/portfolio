@@ -1,0 +1,20 @@
+{
+    "title": "About",
+    "subTitle": "Currently in Grenoble",
+    "text1": "Ever since I was little, I've loved building things, whether with code or with my hands. When I encounter a problem, I want to find a solution. Today I put this desire to work for my clients by developing digital solutions that meet their needs.",
+    "text2": "When I'm not coding, I'm probably exploring the Alps on skis or on foot.",
+    "imageAlt": "About Victor Lebecq",
+    "experience": {
+        "title": "Experience"
+    },
+    "tech": {
+        "title": "Tech",
+        "text1": "Currently I mainly work with WordPress or JavaScript frameworks like React or recently AstroJS, which I particularly appreciate for its DX (Developer Experience). For styling, after creating my mockups in Figma, I like using TailwindCSS for its simplicity and efficiency.",
+        "text2": "Before each project start, I select the technology that will most effectively meet my needs, while minimizing (as much as possible) the project's impact on our beautiful planet.",
+        "siteCarbon": "This site generates 0.07g of CO2 per visit."
+    },
+    "seo": {
+        "title": "About・Victor Lebecq",
+        "description": "Web developer based in Chambéry who loves bringing impactful and sustainable projects to life."
+    }
+}
