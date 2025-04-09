@@ -3,5 +3,18 @@
         "home": "Home",
         "about": "About",
         "blog": "Blog"
+    },
+    "launcher": {
+        "sectionsLabel": {
+            "pages": "Pages",
+            "contact": "Contact",
+            "settings": "Settings"
+        },
+        "actionsLabel": {
+            "email": "Send an email",
+            "github": "Visit github profile",
+            "theme": "Swap theme",
+            "language": "Change language"
+        }
     }
 }
