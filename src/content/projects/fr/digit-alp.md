@@ -1,6 +1,6 @@
 ---
 title: Digit'Alp
 description: Site de l'agence web Digit'Alp en AstroJS.
-illustration: ./assets/icon_digitalp.svg
+publishingDate: 2025-03-15
 link: https://digit-alp.fr/
 ---

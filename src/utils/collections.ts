@@ -26,3 +26,23 @@ export async function getBlogCollection(lang: 'fr' | 'en') {
         }
     })
 }
+
+export async function getProjectCollection(lang: 'fr' | 'en') {
+    const projectCollection = await getCollection(
+        'projects',
+        ({ data, id }) => {
+            return id.startsWith(lang)
+        }
+    ).then((data) =>
+        data.toSorted((a, b) => {
+            if (a.data.publishingDate > b.data.publishingDate) {
+                return -1
+            } else if (a.data.publishingDate < b.data.publishingDate) {
+                return 1
+            } else {
+                return 0
+            }
+        })
+    )
+    return projectCollection
+}

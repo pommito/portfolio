@@ -1,6 +1,6 @@
 ---
 title: Lightfile
 description: Application web de compression d'images côté client.
-illustration: ./assets/icon_lightfile.svg
+publishingDate: 2024-08-15
 link: https://lightfile.victorlebecq.fr/
 ---

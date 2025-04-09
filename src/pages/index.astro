@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import { getBlogCollection } from '@/utils/collections';
+import { getBlogCollection, getProjectCollection } from '@/utils/collections';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
 import Layout from '@/layouts/Layout.astro';
@@ -11,8 +11,7 @@ import BlogCard from '@/components/BlogCard.astro';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-
-const projects = await getCollection('projects');
+const projects = await getProjectCollection(lang);
 const articles = await getBlogCollection(lang);
 ---
 
