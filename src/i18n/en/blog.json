@@ -4,5 +4,8 @@
     "seo": {
         "title": "Blog - Portfolio 2025",
         "description": "I document my tech watch and freelance activity"
+    },
+    "article": {
+        "dateText": "Published"
     }
 }

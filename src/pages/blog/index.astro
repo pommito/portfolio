@@ -17,11 +17,11 @@ const articles = await getBlogCollection(lang);
   metaDescription={t("blog.seo.description")}
 >
   <h1 class="text-2xl">{t("blog.title")}</h1>
-	<h2 class="text-neutral-500">{t("blog.subTitle")}</h2>
+  <h2 class="text-neutral-500">{t("blog.subTitle")}</h2>
 
   <div class="group mt-12 sm:mt-16">
     {articles.map((article) => (
       <BlogCard article={article} />
     ))}
-	</div>
+  </div>
 </Layout>

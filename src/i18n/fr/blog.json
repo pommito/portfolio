@@ -4,5 +4,8 @@
     "seo": {
         "title": "Blog - Portfolio 2025",
         "description": "Je documente ma veille et mon activité de freelance"
+    },
+    "article": {
+        "dateText": "Publié le"
     }
 }
