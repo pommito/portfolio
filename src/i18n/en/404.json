@@ -1,0 +1,9 @@
+{
+    "title": "404",
+    "subtitle": "Page not found",
+    "text": "The page you are trying to find does not exist. This page is as lost as you are.",
+    "link": "Return to homepage",
+    "seo": {
+        "title": "404 - Page not found"
+    }
+}

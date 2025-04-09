@@ -9,13 +9,7 @@ import Seo from '@/components/Seo.astro';
 import { getLangFromUrl } from '../i18n/utils';
 import '../styles/global.css';
 
-type Props = {
-	title: string;
-	metaTitle?: string;
-	metaDescription: string;
-}
-
-const { title, metaTitle, metaDescription } = Astro.props as Props;
+const { title, metaTitle, metaDescription } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
 
