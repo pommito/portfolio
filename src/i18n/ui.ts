@@ -1,3 +1,5 @@
+import commonFr from './fr/common.json'
+import commonEn from './en/common.json'
 import blogFr from './fr/blog.json'
 import blogEn from './en/blog.json'
 import notFoundFr from './fr/404.json'
@@ -27,14 +29,12 @@ export const routes = {
 
 export const ui = {
     en: {
-        'nav.home': 'Home',
-        'nav.about': 'About',
+        common: commonEn,
         blog: blogEn,
         '404': notFoundEn,
     },
     fr: {
-        'nav.home': 'Accueil',
-        'nav.about': 'À propos',
+        common: commonFr,
         blog: blogFr,
         '404': notFoundFr,
     },

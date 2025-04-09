@@ -1,4 +1,7 @@
 {
-    "nav.home": "Accueil",
-    "nav.about": "A propos"
+    "nav": {
+        "home": "Accueil",
+        "about": "A propos",
+        "blog": "Blog"
+    }
 }
