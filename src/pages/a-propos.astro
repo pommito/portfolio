@@ -7,11 +7,12 @@ import Layout from "@/layouts/Layout.astro";
 import WorkExperience from "@/components/WorkExperience.astro";
 
 import image from "@/assets/about.jpg";
-
-const experiences = await getCollection('experiences');
+import { getExperienceCollection } from "@/utils/collections";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const experiences = await getExperienceCollection(lang);
 
 ---
 
@@ -41,4 +42,5 @@ const t = useTranslations(lang);
       <span>{t("about.tech.siteCarbon")}</span>
     </div>
   </div>
+
 </Layout>

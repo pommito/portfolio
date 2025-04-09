@@ -46,3 +46,26 @@ export async function getProjectCollection(lang: 'fr' | 'en') {
     )
     return projectCollection
 }
+
+export async function getExperienceCollection(lang: 'fr' | 'en') {
+    const experienceCollection = await getCollection(
+        'experiences',
+        ({ data, id }) => {
+            return id.startsWith(lang)
+        }
+    ).then((data) =>
+        data.toSorted((a, b) => {
+            if (
+                a.data.endDate > b.data.endDate ||
+                a.data.endDate === 'Present'
+            ) {
+                return -1
+            } else if (a.data.endDate < b.data.endDate) {
+                return 1
+            } else {
+                return 0
+            }
+        })
+    )
+    return experienceCollection
+}
