@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import { getBlogCollection } from '@/utils/collections';
-import { getLangFromUrl } from '@/i18n/utils';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
 import Layout from '@/layouts/Layout.astro';
 import SocialLinks from '@/components/SocialLinks.astro';
@@ -9,24 +9,23 @@ import ProjectCard from '@/components/ProjectCard.astro';
 import BlogCard from '@/components/BlogCard.astro';
 
 const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 
 const projects = await getCollection('projects');
 const articles = await getBlogCollection(lang);
 ---
 
 <Layout
-	title="Victor Lebecq・Développeur web à Chambéry et Grenoble"
-	metaTitle="Victor Lebecq・Développeur web à Chambéry et Grenoble"
-  metaDescription="Développeur web base à Chambéry qui aime donner vie à des projets impactant et durables."
+	title={t("home.seo.title")}
+	metaDescription={t("home.seo.description")}
 >
-	<h1 class="text-2xl">Victor Lebecq</h1>
-	<h2 class="text-neutral-500">Développeur web @ <a href="https://digit-alp.fr" target="_blank" class="transition-colors ease-out duration-300 hover:text-neutral-900 dark:hover:text-neutral-100">Digit'Alp</a> </h2>
-	<p>
-		Développeur web freelance de 25 ans basé à Chambéry, je travail principalement avec <strong class="font-medium">React</strong>, <strong class="font-medium">Wordpress</strong> et <strong class="font-medium">AstroJS</strong>. J'aime découper des problèmes et trouver des solutions pour donner vie à des projets impactant et durables pour mes clients.
-	</p>
+	<h1 class="text-2xl">{t("home.title")}</h1>
+	<h2 class="text-neutral-500">{t("home.subTitle")} @ <a href="https://digit-alp.fr" target="_blank" class="transition-colors ease-out duration-300 hover:text-neutral-900 dark:hover:text-neutral-100">Digit'Alp</a> </h2>
+	<p>{t("home.text")}</p>
 
 	<div class="mt-12 sm:mt-16">
-		<h2 class="text-neutral-500 mb-6">[ Projets ]</h2>
+		<h2 class="text-neutral-500 mb-6">[ {t("home.project.title")} ]</h2>
 		<div class="group">
 			{projects.map((project) => (
 				<ProjectCard title={project.data.title} description={project.data.description} link={project.data.link} />
@@ -44,7 +43,7 @@ const articles = await getBlogCollection(lang);
 
 	<div class="mt-12 sm:mt-16">
         <h2 class="text-neutral-500 mb-6">[ Catch me if you can ]</h2>
-        <p>Une question ? Un projet ? Trouvez moi sur mes différents réseaux ou par <a href="mailto:victor.lebecq.pro@gmail.com" class="font-bold">mail</a>.</p>
+        <p>{t("home.contact.text")} <a href="mailto:victor.lebecq.pro@gmail.com" class="font-bold">mail</a>.</p>
         <SocialLinks />
 	</div>
 
