@@ -8,10 +8,13 @@ type Props = {
   href?: string;
 }
 
+import { languages } from '../../i18n/ui';
+import { getLangFromUrl, getRouteFromUrl,  useTranslatedPath } from '../../i18n/utils';
+
 const { id, title, tagLabel, href } = Astro.props as Props;
 ---
 
-<li 
+<li
   id=`launcher${id}`
   tabindex="0"
   role="menuitem"
@@ -38,15 +41,15 @@ const { id, title, tagLabel, href } = Astro.props as Props;
     import { toggleModal } from "@/utils/launcher";
     document.addEventListener('astro:page-load', () => {
       const themeSwitcherElem = document.getElementById(`launcherThemeSwitcher`);
-      
+
       if (!themeSwitcherElem) return;
-      themeSwitcherElem.addEventListener('click', () => {          
+      themeSwitcherElem.addEventListener('click', () => {
         toggleTheme();
         saveThemeChoice();
         toggleModal();
 
       });
-      
+
     });
   </script>
 )}
