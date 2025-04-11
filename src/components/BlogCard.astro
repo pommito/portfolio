@@ -26,11 +26,13 @@ const formatedDate = new Date(publishingDate).toLocaleDateString(lang === 'fr' ?
                 {title}
         </a>
     </h3>
-    <div class="space-x-1">
-      {tags.map((tag) => (
-        <Tag label={tag} />
-      ))}
-    </div>
+    {tags && (
+      <div class="space-x-1">
+        {tags.map((tag) => (
+          <Tag label={tag} />
+        ))}
+      </div>
+    )}
   </div>
   <time datetime={formatedDate} class="text-sm"><span>{formatedDate}</span></time>
 </article>

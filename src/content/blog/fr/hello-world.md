@@ -1,8 +1,6 @@
 ---
 title: Hello World
 publishingDate: 2025-04-07
-tags:
-    - Presentation
 published: true
 href: hello-world
 ---
