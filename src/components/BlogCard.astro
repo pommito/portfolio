@@ -7,14 +7,14 @@ import Tag from './ui/Tag.astro';
 type Props = {
   article: CollectionEntry<'blog'>;
 }
-
-const { article } = Astro.props as Props;
-const { title, publishingDate, tags, href } = article.data;
-const formatedDate = new Date(publishingDate).toLocaleDateString("fr-FR");
-
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
+
+const { article } = Astro.props as Props;
+const { title, publishingDate, tags, href } = article.data;
+const formatedDate = new Date(publishingDate).toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-EN', { month: 'short', year: 'numeric' });
+
 
 ---
 
