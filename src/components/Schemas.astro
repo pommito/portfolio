@@ -1,4 +1,5 @@
 ---
+const SITE_URL = import.meta.env.SITE_URL;
 const { pathname } = Astro.url;
 const paths = pathname.split("/").filter(segment => segment);
 
@@ -11,16 +12,27 @@ const breadcrumbs = paths.map((segment, index) => {
 });
 
 const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": breadcrumbs.map((breadcrumb, index) => ({
-    "@type": "ListItem",
-    "position": index + 1,
-    "item": {
-      "@id": breadcrumb.path,
-      "name": breadcrumb.name
-    }
-  }))
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbs.length
+        ? breadcrumbs.map((breadcrumb, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              item: {
+                  "@id": breadcrumb.path,
+                  name: breadcrumb.name,
+              },
+          }))
+        : [
+              {
+                  "@type": "ListItem",
+                  position: 1,
+                  item: {
+                      "@id": SITE_URL,
+                      name: "Home",
+                  },
+              },
+          ],
 };
 
 ---
