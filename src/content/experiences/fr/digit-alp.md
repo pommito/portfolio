@@ -7,7 +7,7 @@ description: Création de ma micro agence web. Accompagnement et développement 
 startDate: 2023-01-20
 endDate: Present
 tags:
+    - React
     - Wordpress
-    - Javascript
-    - PHP
+    - Astro
 ---

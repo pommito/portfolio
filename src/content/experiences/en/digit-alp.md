@@ -7,7 +7,7 @@ description: Creation of my micro web agency. Support and development of web pro
 startDate: 2023-01-20
 endDate: Present
 tags:
+    - React
     - Wordpress
-    - Javascript
-    - PHP
+    - Astro
 ---

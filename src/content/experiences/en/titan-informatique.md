@@ -7,7 +7,7 @@ description: Long term mission to manage the client website portfolio and web cr
 startDate: 2024-03-18
 endDate: 2024-11-01
 tags:
-    - React
     - Wordpress
-    - Astro
+    - Javascript
+    - PHP
 ---

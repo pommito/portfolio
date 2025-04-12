@@ -7,7 +7,7 @@ description: Mission de maintenance du portefeuille de sites clients et de créa
 startDate: 2024-03-18
 endDate: 2024-11-01
 tags:
-    - React
     - Wordpress
-    - Astro
+    - Javascript
+    - PHP
 ---

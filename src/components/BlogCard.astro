@@ -15,7 +15,6 @@ const { article } = Astro.props as Props;
 const { title, publishingDate, tags, href } = article.data;
 const formatedDate = new Date(publishingDate).toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-EN', { month: 'short', year: 'numeric' });
 
-
 ---
 
 <article class="relative isolate flex items-center rounded-xl p-2 -ml-2 transition-all ease-in duration-300 group-hover:not-hover:opacity-20 group-hover:has-hover:scale-102">
