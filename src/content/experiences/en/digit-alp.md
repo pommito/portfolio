@@ -3,7 +3,7 @@ title: Freelance Web Developer
 company: Digit'Alp
 companyLogo: ../assets/logo-digitalp.png
 companyUrl: https://digit-alp.fr
-description: Creation of my micro web agency. Support and development of web projects for local and international companies.
+description: Development and support on web projects for local and international companies.
 startDate: 2023-01-20
 endDate: Present
 tags:
