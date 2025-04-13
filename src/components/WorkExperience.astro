@@ -1,8 +1,6 @@
 ---
-import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 
-import Tag from "./ui/Tag.astro";
 
 type Props = {
   experience: CollectionEntry<"experiences">;
@@ -16,7 +14,6 @@ const displayedEndDate = endDate === 'Present' ? 'Present' : new Date(endDate).t
 
 ---
 
-
 <div class="flex flex-col items-start rounded-xl gap-1 transition-all ease-in duration-300 group-hover:not-hover:opacity-20">
     <div class="flex items-center justify-between w-full">
         <div class="sm:flex sm:items-center">
@@ -28,21 +25,3 @@ const displayedEndDate = endDate === 'Present' ? 'Present' : new Date(endDate).t
     </div>
     <p class="text-sm !mt-0">{description}</p>
 </div>
-
-
-<!-- <div class="flex flex-col items-start rounded-xl gap-2 p-2 -ml-2 transition-all ease-in duration-300 group-hover:not-hover:opacity-20 sm:items-center sm:flex-row sm:gap-4">
-  <div class="size-16 bg-neutral-200 dark:bg-neutral-800 flex items-center justify-center rounded-lg overflow-hidden ">
-    <Image src={companyLogo} alt="Logo de Victor Lebecq" width="100" height="100" class="w-full h-auto object-cover object-center" />
-  </div>
-  <span class="text-xs/4 sm:order-3">{displayedStartDate} - {displayedEndDate}</span>
-  <div class="flex-1">
-    <h3 class=""><a href={companyUrl} target="_blank">{company}</a></h3>
-    <h4 class="text-sm text-neutral-500">{title}</h4>
-    <p class="text-sm !mt-0">{description}</p>
-    <div class="space-x-1">
-      {tags.map((tag) => (
-        <Tag label={tag} />
-      ))}
-    </div>
-  </div>
-</div> -->
