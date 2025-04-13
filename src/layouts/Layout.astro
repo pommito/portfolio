@@ -8,6 +8,7 @@ import Seo from '@/components/Seo.astro';
 
 import { getLangFromUrl } from '../i18n/utils';
 import '../styles/global.css';
+import FadedBackground from '@/components/FadedBackground.astro';
 
 const { title, metaTitle, metaDescription } = Astro.props;
 
@@ -43,6 +44,7 @@ const lang = getLangFromUrl(Astro.url);
 			<Footer />
 		</div>
 		<Launcher />
+		<FadedBackground />
 	</body>
 
 	<script>
