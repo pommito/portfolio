@@ -33,7 +33,7 @@ p {
 }
 
 #article-content img {
-    @apply relative z-10 my-6 rounded;
+    @apply my-6 rounded;
 }
 
 #article-content ul {
