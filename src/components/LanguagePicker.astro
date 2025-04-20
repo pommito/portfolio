@@ -8,12 +8,12 @@ const translatePath = useTranslatedPath(lang);
 
 ---
 <ul class="flex gap-1 uppercase">
-  [ {Object.entries(languages).map(([lang, label], index) => (
+  {Object.entries(languages).map(([lang, label], index) => (
     <>
       <li>
-        <a href={translatePath(`/${route ? route : ''}`, lang)} class="hover:text-neutral-100 transition-colors ease-out">{lang}</a>
+          <a href={translatePath(`/${route ? route : ''}`, lang)} class="hover:text-neutral-100 transition-colors ease-out">{lang === 'fr' ? '🇫🇷' : '🇬🇧'}</a>
       </li>
       {index < Object.entries(languages).length - 1 && ' / '}
     </>
-  ))} ]
+  ))}
 </ul>
