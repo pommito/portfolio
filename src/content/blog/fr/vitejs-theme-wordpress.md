@@ -3,7 +3,7 @@ title: Comment ajouter ViteJS à son thème WordPress
 publishingDate: 2025-05-01
 tags: ['WordPress', 'ViteJS', 'TailwindCSS']
 published: true
-href: ajouter-vitejs-theme-WordPress
+href: vitejs-theme-wordpress
 ---
 
 Dans mon activité de développeur freelance, il m'arrive très souvent de travailler avec WordPress. Au début j'utilisais les différents builders de l'écosystème, mais aujourd'hui je m'oriente vers des thèmes personnalisés. Choix certainement discutable, mais c'est selon moi un choix bien plus cohérent que ce soit pour moi comme pour mon client.

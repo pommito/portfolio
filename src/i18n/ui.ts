@@ -23,12 +23,14 @@ export const routes = {
         'a-propos': 'a-propos',
         blog: 'blog',
         'hello-world': 'blog/hello-world',
+        'vitejs-theme-wordpress': 'blog/vitejs-theme-wordpress',
     },
     en: {
         Accueil: '/',
         'a-propos': 'about',
         blog: 'blog',
         'blog/hello-world': 'hello-world',
+        'blog/vitejs-theme-wordpress': 'vitejs-theme-wordpress',
     },
 }
 
