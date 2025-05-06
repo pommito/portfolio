@@ -32,6 +32,10 @@ p {
     @apply my-6 mt-0 leading-relaxed opacity-90;
 }
 
+#article-content a {
+    @apply font-semibold underline;
+}
+
 #article-content img {
     @apply my-6 rounded;
 }
@@ -50,5 +54,5 @@ p {
 }
 
 #article-content pre {
-    @apply relative my-4 rounded p-4 text-sm;
+    @apply relative my-6 rounded p-4 text-sm;
 }
