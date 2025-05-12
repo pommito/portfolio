@@ -1,12 +1,12 @@
 ---
 import { Image } from "astro:assets";
-import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getExperienceCollection } from "@/utils/collections";
 
 import Layout from "@/layouts/Layout.astro";
 import WorkExperience from "@/components/WorkExperience.astro";
 
 import image from "@/assets/about.jpg";
-import { getExperienceCollection } from "@/utils/collections";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
