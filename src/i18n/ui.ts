@@ -8,7 +8,7 @@ import commonEn from './en/common.json'
 import homeEn from './en/home.json'
 import aboutEn from './en/about.json'
 import blogEn from './en/blog.json'
-import notFoundEn from './En/404.json'
+import notFoundEn from './en/404.json'
 
 export const languages = {
     fr: 'Français',
