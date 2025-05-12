@@ -1,5 +1,5 @@
 ---
-title: Freelance Web Developer
+title: Freelance Fullstack Developer
 company: Digit'Alp
 companyUrl: https://digit-alp.fr
 description: Development and support on web projects for local and international companies.
