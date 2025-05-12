@@ -7,7 +7,7 @@ export async function getBlogCollection(lang: 'fr' | 'en') {
             Boolean(import.meta.env.DEV || data.published)
         )
     }).then((data) =>
-        data.toSorted((a, b) => {
+        data.sort((a, b) => {
             if (a.data.publishingDate > b.data.publishingDate) {
                 return -1
             } else if (a.data.publishingDate < b.data.publishingDate) {
@@ -34,7 +34,7 @@ export async function getProjectCollection(lang: 'fr' | 'en') {
             return id.startsWith(lang)
         }
     ).then((data) =>
-        data.toSorted((a, b) => {
+        data.sort((a, b) => {
             if (a.data.publishingDate > b.data.publishingDate) {
                 return -1
             } else if (a.data.publishingDate < b.data.publishingDate) {
@@ -54,7 +54,7 @@ export async function getExperienceCollection(lang: 'fr' | 'en') {
             return id.startsWith(lang)
         }
     ).then((data) =>
-        data.toSorted((a, b) => {
+        data.sort((a, b) => {
             if (
                 a.data.endDate > b.data.endDate ||
                 a.data.endDate === 'Present'
