@@ -20,12 +20,13 @@ export default defineConfig({
 
     integrations: [
         sitemap({
+            lastmod: new Date('2022-02-24'),
             i18n: {
+                defaultLocale: 'fr',
                 locales: {
                     fr: 'fr-FR',
                     en: 'en-US',
                 },
-                defaultLocale: 'fr',
             },
         }),
     ],
