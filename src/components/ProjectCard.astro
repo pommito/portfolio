@@ -33,7 +33,7 @@ const rotation = index % 2 === 0 ? `-rotate-${1 + index}` : "rotate-4";
 
 ---
 
-<div class={`bg-neutral-900/2 dark:bg-white/5 text-center rounded-xl space-y-2 p-2 w-full aspect-square shadow-xl ${rotation} hover:rotate-0 transition-all ease-in duration-300 group-hover:not-hover:opacity-20 group-hover:has-hover:scale-102`}>
+<div class={`relative bg-neutral-900/2 dark:bg-white/5 text-center rounded-xl space-y-2 p-2 w-full aspect-square shadow-xl ${rotation} hover:rotate-0 transition-all ease-in duration-300 group-hover:not-hover:opacity-20 group-hover:has-hover:scale-102`}>
   <div class="w-full aspect-video text-neutral-500 dark:text-neutral-400 bg-neutral-900/2 inset-ring inset-ring-neutral-950/8 dark:bg-white/5 dark:inset-ring-white/2 flex items-center justify-center rounded-lg ">
     <Illustration class="size-6" />
   </div>
