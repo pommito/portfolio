@@ -1,5 +1,4 @@
 ---
-import { getCollection } from 'astro:content';
 import { getBlogCollection, getProjectCollection } from '@/utils/collections';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
@@ -25,9 +24,9 @@ const articles = await getBlogCollection(lang);
 
 	<div class="mt-12 sm:mt-16">
 		<h2 class="text-neutral-500 mb-6">[ {t("home.project.title")} ]</h2>
-		<div class="group">
-			{projects.map((project) => (
-				<ProjectCard title={project.data.title} description={project.data.description} link={project.data.link} />
+		<div class="group grid grid-cols-3 gap-6">
+			{projects.map((project, i) => (
+				<ProjectCard index={i} title={project.data.title} description={project.data.description} link={project.data.link} />
 			))}
 		</div>
 	</div>

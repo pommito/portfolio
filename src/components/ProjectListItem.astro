@@ -1,0 +1,46 @@
+---
+
+import IconLightfile from "@/content/projects/assets/icon_lightfile.svg"
+import IconDigitalp from "@/content/projects/assets/icon_digitalp.svg"
+import IconWepeak from "@/content/projects/assets/icon_wepeak.svg"
+
+type Props = {
+  title: string;
+  description: string;
+  link: string;
+}
+
+const { title, description , link } = Astro.props as Props;
+let Illustration 
+
+switch (title) {
+  case 'Lightfile':
+    Illustration = IconLightfile;
+    break;
+  case 'Digitalp':
+    Illustration = IconDigitalp;
+    break;
+  case 'WePeak':
+    Illustration = IconWepeak;
+    break;
+  default:
+    Illustration = IconDigitalp;
+    break;
+}
+
+---
+
+<div class="relative flex items-center rounded-xl gap-2 p-2 -ml-2 transition-all ease-in duration-300 group-hover:not-hover:opacity-20 group-hover:has-hover:scale-102 sm:gap-4">
+  <div class="size-12 text-neutral-500 dark:text-neutral-400 bg-neutral-900/2 inset-ring inset-ring-neutral-950/8 dark:bg-white/5 dark:inset-ring-white/2 flex items-center justify-center rounded-lg ">
+    <Illustration class="size-4" />
+  </div>
+  <div class="flex-1">
+    <h3 class="">
+      <a href={link}>
+        <span class="absolute inset-0 z-10"></span>
+        {title}
+      </a>
+    </h3>
+    <p class="!mt-0 text-sm">{description}</p>
+  </div>
+</div>
