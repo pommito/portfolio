@@ -1,7 +1,7 @@
 {
     "title": "Victor Lebecq",
     "subTitle": "Développeur Fullstack",
-    "text": "Développeur web de 25 ans basé à Chambéry, je travaille principalement avec React, Wordpress et AstroJS. J'aime découper des problèmes et trouver des solutions pour donner vie à des projets impactant et durables pour mes clients.",
+    "text": "Développeur web de 25 ans basé à Chambéry, je travaille principalement avec React, WordPress et AstroJS. J'aime découper des problèmes et trouver des solutions pour donner vie à des projets impactants et durables pour mes clients.",
     "project": {
         "title": "Projets"
     },
@@ -10,6 +10,6 @@
     },
     "seo": {
         "title": "Victor Lebecq・Développeur Fullstack à Chambéry et Grenoble",
-        "description": "Développeur Fullstack basé à Chambéry qui aime donner vie à des projets impactant et durables."
+        "description": "Développeur web fullstack basé à Chambéry qui aime donner vie à des projets impactants et durables."
     }
 }
