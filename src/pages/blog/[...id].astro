@@ -14,7 +14,6 @@ type Props = {
 export async function getStaticPaths({ lang = "fr" }: { lang?: "fr" | "en" }) {
   const articles = await getBlogCollection(lang);
 
-
   return articles.map((article) => ({
     params: { id: article.data.href },
     props: { article },
@@ -25,7 +24,7 @@ export async function getStaticPaths({ lang = "fr" }: { lang?: "fr" | "en" }) {
 const { article } = Astro.props;
 const { Content } = await render(article);
 
-const { title, publishingDate, tags } = article.data;
+const { title, description, publishingDate, tags } = article.data;
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -36,8 +35,8 @@ const formatedDate = new Date(publishingDate).toLocaleDateString(`${lang}-${lang
 
 <Layout
   title={`${title}・Victor Lebecq`}
-  metaTitle={`${title}・Victor Lebecq`}
-  metaDescription="TODO : Add a meta description to the articles"
+  metaTitle={`${title} - Victor Lebecq`}
+  metaDescription={description}
 >
     <h1 class="text-2xl">{title}</h1>
     <h4 class="text-neutral-500">{t("blog.article.dateText")} {formatedDate}</h4>

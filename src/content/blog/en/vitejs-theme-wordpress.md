@@ -1,5 +1,6 @@
 ---
 title: How to add ViteJS to your WordPress theme
+description: Discover how to integrate ViteJS into a WordPress theme to improve your development workflow, enjoy hot reload, and optimize your assets with a simple and efficient setup.
 publishingDate: 2025-05-01
 tags: ['WordPress', 'ViteJS', 'TailwindCSS']
 published: true

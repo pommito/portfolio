@@ -1,5 +1,6 @@
 ---
 title: Hello World
+description: Welcome to my blog! I'm Victor Lebecq, a fullstack developer based in Chambéry and Grenoble. This article is an introduction about myself, my journey, and what I plan to share on this blog.
 publishingDate: 2025-04-07
 tags: ['Presentation']
 published: true
