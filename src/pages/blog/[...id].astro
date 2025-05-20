@@ -6,6 +6,7 @@ import Layout from "@/layouts/Layout.astro";
 import Tag from "@/components/ui/Tag.astro";
 import { getBlogCollection } from "@/utils/collections";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import Toc from "@/components/Toc.astro";
 
 type Props = {
   article: CollectionEntry<"blog">;
@@ -22,7 +23,7 @@ export async function getStaticPaths({ lang = "fr" }: { lang?: "fr" | "en" }) {
 
 
 const { article } = Astro.props;
-const { Content } = await render(article);
+const { Content, headings } = await render(article);
 
 const { title, description, publishingDate, tags } = article.data;
 
@@ -49,7 +50,9 @@ const formatedDate = new Date(publishingDate).toLocaleDateString(`${lang}-${lang
     </div>
     )}
 
+    <!-- <Toc headings={headings} /> -->
+
     <div id="article-content" class="group mt-12 sm:mt-16">
         <Content  />
-	</div>
+	  </div>
 </Layout>

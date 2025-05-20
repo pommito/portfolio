@@ -1,6 +1,6 @@
 ---
 title: How to add ViteJS to your WordPress theme
-description: Discover how to integrate ViteJS into a WordPress theme to improve your development workflow, enjoy hot reload, and optimize your assets with a simple and efficient setup.
+description: Discover in this article how to easily integrate ViteJS into a WordPress theme to improve your development workflow.
 publishingDate: 2025-05-01
 tags: ['WordPress', 'ViteJS', 'TailwindCSS']
 published: true
@@ -181,6 +181,8 @@ To link your Vite server to your theme, make sure you have the script load in yo
     <?php wp_head(); ?>
 </head>
 ```
+
+## Conclusion
 
 If you have followed the previous steps, you should now see your Vite development server (`http://localhost:5173`) on the frontend of your WordPress site, along with your assets. You can now modify your files, and HMR will automatically reload your page!
 

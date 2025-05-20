@@ -1,0 +1,27 @@
+---
+import type { MarkdownHeading } from 'astro';
+
+
+type Props = {
+  headings: MarkdownHeading[]
+}
+
+const { headings } = Astro.props as Props;
+
+---
+
+<div class="fixed top-54 right-4 w-64 z-999">
+  <div class="peer flex flex-col items-end gap-2 w-fit ml-auto">
+    {headings.map((heading) => (
+      <div class={`${heading.depth === 2 ? "w-6" : "w-4"} h-0.5 bg-neutral-700 rounded-xl transition-colors duration-200 ease-in-out hover:bg-neutral-100`}>
+      </div>
+    ))}
+  </div>
+  <ul class="group absolute top-0 right-8 w-0 overflow-hidden -translate-y-1/4 bg-neutral-800 space-y-2 rounded-lg peer-hover:w-full hover:w-full">
+    {headings.map((heading) => (
+        <li class={`${heading.depth === 3 ? "ml-4 text-xs" : "text-sm"} transition-all duration-300 ease-in-out group-hover:not-hover:opacity-20`}>
+            <a href={`#${heading.slug}`} class="">{heading.text}</a>
+        </li>
+    ))}
+  </ul>
+</div>
