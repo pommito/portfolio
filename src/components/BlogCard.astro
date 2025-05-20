@@ -20,10 +20,10 @@ const formatedDate = new Date(publishingDate).toLocaleDateString(lang === 'fr' ?
 <article class="relative isolate flex items-center rounded-xl p-2 -ml-2 transition-all ease-in duration-300 group-hover:not-hover:opacity-20 group-hover:has-hover:scale-102">
   <div class="flex-1">
     <h3>
-        <a href={translatePath(`/blog/${href}/`, lang)}>
-                <span class="absolute inset-0 z-10"></span>
-                {title}
-        </a>
+      <a href={translatePath(`/blog/${href}/`, lang)}>
+        <span class="absolute inset-0 z-10"></span>
+        {title}
+      </a>
     </h3>
     {tags && (
       <div class="space-x-1">
