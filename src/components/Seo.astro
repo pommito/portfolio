@@ -7,13 +7,17 @@ type Props = {
   title: string;
   metaTitle?: string;
   metaDescription: string;
+  pageType?: string;
 }
 
 const SITE_URL = import.meta.env.SITE_URL;
 
 const pathname = new URL(Astro.request.url).pathname.replace(".html", "");
 
-const { title, metaTitle, metaDescription } = Astro.props
+console.log(`pathname`, pathname);
+
+
+const { title, metaTitle, metaDescription, pageType = "website"  } = Astro.props
 
 ---
 
@@ -27,8 +31,8 @@ const { title, metaTitle, metaDescription } = Astro.props
 <meta name="twitter:image" content={`${SITE_URL}${ogImage.src}`} />
 <meta property="og:image" content={`${SITE_URL}${ogImage.src}`} />
 <meta content="Victor Lebecq - Développeur fullstack à Chambéry et Grenoble" name="og:site_name" />
-<meta content={SITE_URL} name="og:url" />
-<meta content="website" name="og:type" />
+<meta content={`${SITE_URL}${pathname}`} name="og:url" />
+<meta content={pageType} name="og:type" />
 <link rel="canonical" href={`${SITE_URL}${pathname}`} />
 <link rel="home" href={`${SITE_URL}`} />
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />

@@ -11,7 +11,7 @@ import FadedBackground from '@/components/FadedBackground.astro';
 import { getLangFromUrl } from '../i18n/utils';
 import '../styles/global.css';
 
-const { title, metaTitle, metaDescription } = Astro.props;
+const { title, metaTitle, metaDescription, pageType } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
 
@@ -22,7 +22,7 @@ const lang = getLangFromUrl(Astro.url);
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<Seo title={title} metaTitle={metaTitle} metaDescription={metaDescription} />
+		<Seo title={title} metaTitle={metaTitle} metaDescription={metaDescription} pageType={pageType} />
 		<Analytics />
 		<script>
 			(function() {
