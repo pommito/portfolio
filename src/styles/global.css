@@ -14,6 +14,11 @@
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
+html,
+body {
+    @apply scroll-smooth;
+}
+
 p {
     @apply mt-6 font-light text-pretty;
 }
