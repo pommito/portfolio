@@ -30,6 +30,10 @@ export function useTranslations(lang: keyof typeof ui) {
     }
 }
 
+export function stringifyTranslations(value: any) {
+    return value.toString()
+}
+
 export function useTranslatedPath(lang: keyof typeof ui) {
     return function translatePath(path: string, l: string = lang) {
         const pathName = path.replaceAll('/', '')
