@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { getLangFromUrl, stringifyTranslations, useTranslations } from '../i18n/utils';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 import { getExperienceCollection } from "@/utils/collections";
 
 import Layout from "@/layouts/Layout.astro";
@@ -23,7 +23,7 @@ const experiences = await getExperienceCollection(lang);
   <h2 class="text-neutral-500">{t("about.subTitle")}</h2>
   <p>{t("about.text1")}</p>
   <p>{t("about.text2")}</p>
-  <Image src={image} alt={stringifyTranslations(t("about.imageAlt"))} width="1280" height="720" class="relative mt-6 rounded z-10" />
+  <Image src={image} alt={t("about.imageAlt")} width="1280" height="720" class="relative mt-6 rounded z-10" />
 
   <div class="mt-12 sm:mt-16">
     <h2 class="text-neutral-500 mb-6">[ {t("about.experience.title")} ]</h2>
