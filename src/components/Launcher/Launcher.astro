@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, getRouteFromUrl, useTranslatedPath, useTranslations, stringifyTranslations } from "@/i18n/utils";
+import { getLangFromUrl, getRouteFromUrl, stringifyTranslations, useTranslatedPath, useTranslations } from "@/i18n/utils";
 
 import Shortcut from "../ui/Shortcut.astro";
 import LauncherOverlay from "./LauncherOverlay.astro";
@@ -32,7 +32,7 @@ const translatePath = useTranslatedPath(lang);
     </header>
     <div class="py-2">
       <ul class="px-2">
-        <LauncherListCategory label={stringifyTranslations(t("common.launcher.sectionsLabel.search"))}>
+        <LauncherListCategory label={stringifyTranslations(t("common.launcher.sectionsLabel.pages"))}>
           <LauncherListItem id="LinkToHome" title={stringifyTranslations(t("common.nav.home"))} href={translatePath('/', lang)}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
           </LauncherListItem>
