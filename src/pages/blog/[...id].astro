@@ -1,11 +1,11 @@
 ---
-import { render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { getBlogCollection } from "@/utils/collections";
 
 import Layout from "@/layouts/Layout.astro";
 import Tag from "@/components/ui/Tag.astro";
-import { getBlogCollection } from "@/utils/collections";
-import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import Toc from "@/components/Toc.astro";
 
 type Props = {

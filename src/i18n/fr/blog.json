@@ -6,6 +6,8 @@
         "description": "Je documente ma veille et mon activité de freelance"
     },
     "article": {
-        "dateText": "Publié le"
+        "dateText": "Publié le",
+        "tocAriaLabel": "Table des matières",
+        "tocLinksAriaLabel": "Aller à la section"
     }
 }

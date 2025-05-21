@@ -6,6 +6,8 @@
         "description": "I document my tech watch and freelance activity"
     },
     "article": {
-        "dateText": "Published"
+        "dateText": "Published",
+        "tocAriaLabel": "Table of contents",
+        "tocLinksAriaLabel": "Go to section"
     }
 }
