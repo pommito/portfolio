@@ -8,20 +8,33 @@ type Props = {
 
 const { headings } = Astro.props as Props;
 
+const filteredHeadings = headings.filter((heading) => heading.depth <= 3);
+
+function getConditionalLineClass(depth: number) {
+  return `${depth === 2 ? 'w-6' : 'w-4'} `;
+}
+
+function getConditionalListItemClass(depth: number) {
+  return `${depth === 3 ? 'ml-4 text-xs' : 'text-sm'}`;
+}
+
 ---
 
-<div class="fixed top-54 right-4 w-64 z-999">
-  <div class="peer flex flex-col items-end gap-2 w-fit ml-auto">
-    {headings.map((heading) => (
-      <div class={`${heading.depth === 2 ? "w-6" : "w-4"} h-0.5 bg-neutral-700 rounded-xl transition-colors duration-200 ease-in-out hover:bg-neutral-100`}>
+<nav aria-label="Table des matières de l'article" class="hidden md:block fixed top-56 left-4 w-80 z-999 pointer-coarse:hidden">
+  <div class="peer space-y-2 w-8">
+    {filteredHeadings.map((heading) => (
+      <div class={` h-0.5 relative  rounded-lg transition-all duration-300 ease-in-out bg-neutral-400 dark:bg-neutral-700 hover:bg-neutral-800 dark:hover:bg-neutral-100 hover:scale-120 ${getConditionalLineClass(heading.depth)}`}>
+        <a href={`#${heading.slug}`} tabindex="0" aria-label={`Aller à la section ${heading.text}`}>
+          <span class="absolute inset-0"></span>
+        </a>
       </div>
     ))}
   </div>
-  <ul class="group absolute top-0 right-8 w-0 overflow-hidden -translate-y-1/4 bg-neutral-800 space-y-2 rounded-lg peer-hover:w-full hover:w-full">
-    {headings.map((heading) => (
-        <li class={`${heading.depth === 3 ? "ml-4 text-xs" : "text-sm"} transition-all duration-300 ease-in-out group-hover:not-hover:opacity-20`}>
-            <a href={`#${heading.slug}`} class="">{heading.text}</a>
-        </li>
+  <ul class="group absolute top-0 left-8 w-full scale-0 opacity-0 overflow-hidden space-y-2 rounded-lg pl-3  text-neutral-800 dark:text-neutral-100  transition-all ease-in-out duration-500 origin-top-left peer-hover:scale-100 hover:scale-100 peer-hover:opacity-100 hover:opacity-100">
+    {filteredHeadings.map((heading) => (
+      <li class={`transition-all duration-300 ease-in-out hover:underline group-hover:not-hover:opacity-40 cursor-pointer ${getConditionalListItemClass(heading.depth)}`}>
+        <a href={`#${heading.slug}`} tabindex="0" aria-label={`Aller à la section ${heading.text}`}>{heading.text}</a>
+      </li>
     ))}
   </ul>
-</div>
+</nav>
