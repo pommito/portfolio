@@ -41,14 +41,14 @@ const lang = getLangFromUrl(Astro.url);
 		data-modal="close"
 		class="bg-neutral-100 font-sans font-medium text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100 overflow-auto data-[modal=open]:overflow-hidden data-[modal=open]:overscroll-contain data-[modal=open]:pointer-events-none data-[modal=open]:!mr-[15px]"
 	>
-
-		<div class="mx-auto max-w-3xl overflow-x-hidden px-4 pt-12 antialiased sm:px-6 sm:pt-16 md:overflow-x-visible">
-			<Header />
-			<slot />
-			<Footer />
-		</div>
-		<Launcher />
-		<NoiseBackground />
+	<NoiseBackground />
+	
+	<div class="mx-auto max-w-3xl overflow-x-hidden px-4 pt-12 antialiased sm:px-6 sm:pt-16 md:overflow-x-visible">
+		<Header />
+		<slot />
+		<Footer />
+	</div>
+	<Launcher />
 	</body>
 
 	<script>
