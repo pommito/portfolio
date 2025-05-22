@@ -33,7 +33,7 @@ function getConditionalListItemClass(depth: number) {
       </div>
     ))}
   </div>
-  <ul class="group absolute top-0 left-8 w-full scale-0 opacity-0 overflow-hidden space-y-2 rounded-lg p-3  text-neutral-800 dark:text-neutral-100  transition-all ease-in-out duration-500 origin-top-left peer-hover:scale-100 hover:scale-100 peer-hover:opacity-100 hover:opacity-100 hover:bg-neutral-800">
+  <ul class="group absolute top-0 left-8 w-full scale-0 opacity-0 overflow-hidden space-y-2 rounded-lg p-3  text-neutral-800 dark:text-neutral-100  transition-all ease-in-out duration-500 origin-top-left peer-hover:scale-100 hover:scale-100 peer-hover:opacity-100 hover:opacity-100 hover:bg-neutral-100 hover:dark:bg-neutral-800">
     {filteredHeadings.map((heading) => (
       <li class={`transition-all duration-300 ease-in-out hover:underline group-hover:not-hover:opacity-40 cursor-pointer ${getConditionalListItemClass(heading.depth)}`}>
         <a href={`#${heading.slug}`} tabindex="0" aria-label={`${t('blog.article.tocLinksAriaLabel')} ${heading.text}`}>{heading.text}</a>
