@@ -6,6 +6,7 @@ import Layout from '@/layouts/Layout.astro';
 import SocialLinks from '@/components/SocialLinks.astro';
 import ProjectCard from '@/components/ProjectCard.astro';
 import BlogCard from '@/components/BlogCard.astro';
+import Section from '@/components/Section.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -22,26 +23,29 @@ const articles = await getBlogCollection(lang);
 	<h2 class="text-neutral-500">{t("home.subTitle")} @ <a href="https://digit-alp.fr" target="_blank" class="transition-colors ease-out duration-300 hover:text-neutral-900 dark:hover:text-neutral-100">Digit'Alp</a> </h2>
 	<p>{t("home.text")}</p>
 
-	<div class="mt-12 sm:mt-16">
-		<h2 class="text-neutral-500 mb-6">[ {t("home.project.title")} ]</h2>
+	<Section title={t("home.project.title")}>
 		<div class="group grid grid-cols-1 sm:gap-6 sm:grid-cols-3">
 			{projects.map((project, i) => (
 				<ProjectCard index={i} title={project.data.title} description={project.data.description} link={project.data.link} />
 			))}
 		</div>
-	</div>
-	<div class="mt-12 sm:mt-16">
-		<h2 class="text-neutral-500 mb-4">[ Blog ]</h2>
+	</Section>
+
+	<Section title='Blog'>
 		<div class="group">
 			{articles.map((article) => (
 				<BlogCard article={article} />
 			))}
 		</div>
-	</div>
+	</Section>
 
-	<div class="mt-12 sm:mt-16">
-        <h2 class="text-neutral-500 mb-6">[ Catch me if you can ]</h2>
-        <p class="!mt-0">{t("home.contact.text")} <a href="mailto:victor.lebecq.pro@gmail.com">mail</a>.</p>
-        <SocialLinks />
-	</div>
+	<Section title='Catch me if you can'>
+		<p class="!mt-0">
+			{t("home.contact.text")} 
+			<a href="mailto:victor.lebecq.pro@gmail.com">mail</a>
+			.
+		</p>
+		<SocialLinks />
+	</Section>
+	
 </Layout>

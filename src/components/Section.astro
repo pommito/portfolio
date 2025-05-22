@@ -1,0 +1,15 @@
+---
+
+type Props = {
+  title: string;
+  customstyles?: string;
+}
+
+const { title, customstyles } = Astro.props as Props;
+---
+
+
+<div class="mt-12 sm:mt-16">
+  <h2 class=`text-neutral-500 mb-6 ${customstyles}`>[ {title} ]</h2>
+  <slot />
+</div>
