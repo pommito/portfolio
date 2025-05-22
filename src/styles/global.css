@@ -21,7 +21,7 @@ body {
 
 body::after {
     filter: url(#grainy);
-    opacity: 25%;
+    opacity: 15%;
     position: fixed;
     top: 0;
     left: 0;
