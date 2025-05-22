@@ -33,7 +33,7 @@ const rotation = index % 2 === 0 ? `sm:-rotate-${1 + index}` : "sm:rotate-4";
 
 ---
 
-<div class={`relative flex items-center gap-2 rounded-xl p-2 -ml-2 w-full inset-ring inset-ring-neutral-950/8  dark:inset-ring-white/2  ${rotation} transition-all ease-in duration-300 hover:rotate-0 group-hover:not-hover:opacity-20 group-hover:has-hover:scale-102 sm:flex-col sm:text-center sm:aspect-square sm:bg-neutral-100 sm:dark:bg-neutral-800 sm:shadow-lg`}>
+<div class={`relative flex items-center gap-2 rounded-xl p-2 -ml-2 w-full ${rotation} transition-all ease-in duration-300 hover:rotate-0 group-hover:not-hover:opacity-20 group-hover:has-hover:scale-102 sm:flex-col sm:text-center sm:aspect-square sm:bg-neutral-100 sm:dark:bg-neutral-800 sm:inset-ring sm:inset-ring-neutral-950/8  sm:dark:inset-ring-white/2 sm:shadow-lg`}>
   <div class="w-12 aspect-square sm:w-full sm:aspect-video text-neutral-500 dark:text-neutral-400 bg-neutral-900/2 dark:bg-white/5 inset-ring inset-ring-neutral-950/8  dark:inset-ring-white/2 flex items-center justify-center rounded-lg">
     <Illustration class="size-4 sm:size-6" />
   </div>
