@@ -17,5 +17,8 @@
             "language": "Change language"
         },
         "arrowShortcut": "use"
+    },
+    "themeSwitcher": {
+        "ariaLabel": "Change theme"
     }
 }

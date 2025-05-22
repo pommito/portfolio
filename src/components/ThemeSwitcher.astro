@@ -1,8 +1,11 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<button id="themeSwitcher" class="size-2 bg-neutral-900 dark:bg-neutral-100 rounded-full cursor-pointer transition-all ease-in-out duration-500 group-hover:scale-85" aria-label="Change le thème du site"></button>
+<button id="themeSwitcher" class="size-2 bg-neutral-900 dark:bg-neutral-100 rounded-full cursor-pointer transition-all ease-in-out duration-500 group-hover:scale-85" aria-label={t("common.themeSwitcher.ariaLabel")}></button>
 
 <script>
   import { toggleTheme } from "../../src/utils/theme";
