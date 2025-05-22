@@ -1,5 +1,6 @@
 ---
 import LanguagePicker from "./LanguagePicker.astro";
+import ThemeSwitcher from "./ThemeSwitcher.astro";
 
 const year = new Date().getFullYear();
 ---
@@ -7,23 +8,10 @@ const year = new Date().getFullYear();
 <footer class="relative flex items-center text-xs text-neutral-500 justify-between border-t border-neutral-200 dark:border-neutral-800 py-2 mt-16 z-999 sm:mt-32">
   <span>© {year} Victor Lebecq</span>
   <div class="flex items-center text-sm gap-1">
-    <button id="themeSwitcher" class="size-2 bg-neutral-900 dark:bg-neutral-100 rounded-full cursor-pointer transition-all ease-in-out duration-500 group-hover:scale-85" aria-label="Change le thème du site"></button>
+    <ThemeSwitcher />
     <span>~</span>
     <LanguagePicker />
   </div>
 </footer>
 
-<script>
-  import { toggleTheme ,saveThemeChoice } from "../../src/utils/theme";
 
-  document.addEventListener('astro:page-load', () => {
-    const themeSwitcherElem = document.getElementById('themeSwitcher');
-
-    if (themeSwitcherElem) {
-      themeSwitcherElem.addEventListener('click', () => {
-        toggleTheme();
-        saveThemeChoice();
-      });
-    }
-  });
-</script>

@@ -3,10 +3,10 @@ import { getBlogCollection, getProjectCollection } from '@/utils/collections';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
 import Layout from '@/layouts/Layout.astro';
+import Section from '@/components/ui/Section.astro';
 import SocialLinks from '@/components/SocialLinks.astro';
 import ProjectCard from '@/components/ProjectCard.astro';
 import BlogCard from '@/components/BlogCard.astro';
-import Section from '@/components/Section.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -47,5 +47,5 @@ const articles = await getBlogCollection(lang);
 		</p>
 		<SocialLinks />
 	</Section>
-	
+
 </Layout>

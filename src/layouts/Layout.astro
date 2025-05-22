@@ -1,16 +1,17 @@
 ---
 import { ClientRouter } from 'astro:transitions';
+import { getLangFromUrl } from '../i18n/utils';
 
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Launcher from '@/components/Launcher/Launcher.astro';
 import Seo from '@/components/meta/Seo.astro';
 import Analytics from '@/components/meta/Analytics.astro';
-import FadedBackground from '@/components/FadedBackground.astro';
-
-import { getLangFromUrl } from '../i18n/utils';
-import '../styles/global.css';
 import NoiseBackground from '@/components/NoiseBackground.astro';
+
+import '../styles/global.css';
+
+
 
 const { title, metaTitle, metaDescription, pageType } = Astro.props;
 
@@ -41,20 +42,21 @@ const lang = getLangFromUrl(Astro.url);
 		data-modal="close"
 		class="bg-neutral-100 font-sans font-medium text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100 overflow-auto data-[modal=open]:overflow-hidden data-[modal=open]:overscroll-contain data-[modal=open]:pointer-events-none data-[modal=open]:!mr-[15px]"
 	>
-	<NoiseBackground />
+		<Launcher />
+		<NoiseBackground />
 	
-	<div class="mx-auto max-w-3xl overflow-x-hidden px-4 pt-12 antialiased sm:px-6 sm:pt-16 md:overflow-x-visible">
-		<Header />
-		<slot />
-		<Footer />
-	</div>
-	<Launcher />
+		<div class="mx-auto max-w-3xl overflow-x-hidden px-4 pt-12 antialiased sm:px-6 sm:pt-16 md:overflow-x-visible">
+			<Header />
+			<slot />
+			<Footer />
+		</div>
+
+		<script>
+		import { checkSavedTheme } from "@/utils/theme"
+    document.addEventListener('astro:page-load', () => {
+        checkSavedTheme()
+    })
+		</script>
 	</body>
 
-	<script>
-		import { checkSavedTheme } from "@/utils/theme";
-		document.addEventListener('astro:page-load', () => {
-			checkSavedTheme();
-		});
-	</script>
 </html>

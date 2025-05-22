@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+import { getLangFromUrl, useTranslatedPath } from '../i18n/utils';
 
 import Tag from './ui/Tag.astro';
 
@@ -8,11 +8,11 @@ type Props = {
   article: CollectionEntry<'blog'>;
 }
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
 const { article } = Astro.props as Props;
 const { title, publishingDate, tags, href } = article.data;
+
 const formatedDate = new Date(publishingDate).toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-EN', { month: 'short', year: 'numeric' });
 
 ---
