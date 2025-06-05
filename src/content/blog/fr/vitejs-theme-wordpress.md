@@ -7,39 +7,37 @@ published: true
 href: vitejs-theme-wordpress
 ---
 
-Dans mon activité de développeur freelance, il m'arrive très souvent de travailler avec WordPress. Au début j'utilisais les différents builders de l'écosystème, mais aujourd'hui je m'oriente vers des thèmes personnalisés. Choix certainement discutable, mais c'est selon moi un choix bien plus cohérent que ce soit pour moi comme pour mon client.
+Dans mon activité de développeur freelance, il m'arrive très souvent de travailler avec WordPress. Au début, j'utilisais les différents builders de l'écosystème, mais aujourd'hui je m'oriente vers des thèmes personnalisés. Un choix peut-être discutable, mais selon moi, il est bien plus cohérent, tant pour moi que pour mon client.
 
-Après avoir bataillé pendant des heures, suivis tous les tutos que j'ai pu trouvé sur internet, j'ai enfin réussi à résoudre le plus gros problème (_selon moi_) dans l'experience de développement de thèmes WordPress.
+Après avoir bataillé pendant des heures, suivi tous les tutoriels que j'ai pu trouver sur internet, j'ai enfin réussi à résoudre le plus gros problème (selon moi) dans l'expérience de développement de thèmes WordPress.
 
-Avant de commencé, je tiens à remercier **[Stéfan Lancelot](https://github.com/stfnlnc)** qui m'a grandement aidé dans la mise de mon starter.
+Avant de commencer, je tiens à remercier [Stéfan Lancelot](https://github.com/stfnlnc) qui m'a grandement aidé dans la mise en place de mon starter.
 
 ## Pourquoi utiliser ViteJS dans son thème WordPress ?
 
 Vite apporte de nombreux avantages pour le développement de thèmes WordPress et me permet de gagner en efficacité lorsque je travaille sur un projet. Et pour cause, il apporte de nombreux avantages comme :
 
-- Une rapidité et fluidité de développement
+- Rapidité et fluidité de développement
 - Le Hot Module Replacement (HMR)
 - Optimisation pour la production
 
-Bref, son intérêt pourrait être le sujet d'un article complet. On va se concentrer pour le moment sur l'implémentation de ViteJS dans un thème. En regardant les différents articles et tuto que j'ai pas trouvé, j'ai cru pendant longtemps que c'était tout un chantier d'avoir dans son thème WordPress viteJS et son hot reload.
+En bref, son intérêt mériterait un article à part entière. Concentrons-nous pour le moment sur l'implémentation de ViteJS dans un thème. En regardant les différents articles et tutoriels que j'ai pu trouver, j'ai cru pendant longtemps que c'était tout un chantier d'intégrer ViteJS et son hot reload dans un thème WordPress.
 
-Au final (_et grâce à Stéfan_), j'ai trouvé une version vraiment très simple à implémenter. Pour les personnes voulant un starter avec uniquement **ViteJS** et **TailwindCSS** pour commencer directement, vous trouverez un repo à cloner [ici](https://github.com/pommito/wp-theme-starter).
+Au final (et grâce à Stéfan), j'ai trouvé une version vraiment très simple à implémenter. Pour les personnes voulant un starter avec uniquement ViteJS et TailwindCSS pour commencer directement, vous trouverez un dépôt à cloner [ici](https://github.com/pommito/wp-theme-starter).
 
 ## Installer ViteJS dans son thème WordPress
 
-### Etape 1 : Installation des dépendances
+### Étape 1 : Installation des dépendances
 
-A la racine de votre thème ( _je suppose ici que vous avez déjà un thème mis en place_ ), installez viteJS :
+À la racine de votre thème (je suppose ici que vous avez déjà un thème mis en place), installez ViteJS :
 
 ```bash
-   npm i vite tailwindcss @tailwindcss/vite
+npm i vite tailwindcss @tailwindcss/vite
 ```
 
 Dans votre package.json, vous devriez maintenant voir ViteJS ainsi que Tailwind dans les dépendances de votre projet. Tailwind n'est pas obligatoire ici.
 
 ```json
-// package.json
-
 {
     "name": "tuto-vite",
     "version": "1.0.0",
@@ -61,15 +59,13 @@ Dans votre package.json, vous devriez maintenant voir ViteJS ainsi que Tailwind 
 }
 ```
 
-> _Dans ce fichier, les scripts dev et build sont également nécessaires pour le bon fonctionnement de Vite._
+> Dans ce fichier, les scripts dev et build sont également nécessaires pour le bon fonctionnement de Vite.
 
-### Etape 2: Editer et configurer ViteJS
+### Étape 2 : Éditer et configurer ViteJS
 
-Ici pas grand chose de compliqué, on configure simplement le comportement du build de nos assets ainsi que l'ajout de tailwind à vite.
+Ici, rien de bien compliqué, on configure simplement le comportement du build de nos assets ainsi que l'ajout de Tailwind à Vite.
 
 ```js
-// vite.config.mjs
-
 import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 
@@ -84,39 +80,34 @@ export default defineConfig({
 })
 ```
 
-Une fois, la configuration faite, on peut lancer notre projet en développement
+Une fois la configuration faite, on peut lancer notre projet en développement :
 
 ```bash
 npm run dev
 ```
 
-> _Pour le moment il ne se passe pas grand chose, on est d'accord_
+> Pour le moment, il ne se passe pas grand-chose, on est d'accord.
 
-Maintenant, vous pouvez mettre en place un fichier `main.js` et `main.css` dans le dossier `assets` de votre projet. Notre fichier javascript va être le point d'entrée de nos assets, nous allons donc importer notre fichier `main.css` directement notre fichier `main.js`
+Maintenant, vous pouvez mettre en place un fichier `main.js` et `main.css` dans le dossier `assets` de votre projet. Notre fichier JavaScript va être le point d'entrée de nos assets, nous allons donc importer notre fichier `main.css` directement dans notre fichier `main.js`.
 
 ```js
-// main.js
 import './main.css'
 
-console.log('Vite is working !')
+console.log('Vite is working!')
 ```
 
-Pour faire fonctionner Tailwind, n'oubliez pas de l'importer dans votre fichier
+Pour faire fonctionner Tailwind, n'oubliez pas de l'importer dans votre fichier :
 
 ```css
-/* main.css */
-
 @import 'tailwindcss';
 @source "./**/*.php";
 ```
 
-### Etape 3: Gérer l'ajout de nos assets dans notre projet
+### Étape 3 : Gérer l'ajout de nos assets dans notre projet
 
-Maintenant que Vite et Tailwind sont ajoutés et configurés, il faut que l'on ajoute nos assets dans notre projet pour pouvoir profiter des fonctionnalités de Vite. Pour ce faire, nous allons utiliser une fonction dans notre fichier _functions.php_ qui va en fonction de l'environnement (_dev ou prod_) aller charger les bons fichiers.
+Maintenant que Vite et Tailwind sont ajoutés et configurés, il faut ajouter nos assets dans notre projet pour pouvoir profiter des fonctionnalités de Vite. Pour ce faire, nous allons utiliser une fonction dans notre fichier functions.php qui va, en fonction de l'environnement (dev ou prod), charger les bons fichiers.
 
 ```php
-// functions.php
-
 function load_vitejs_assets(): void
 {
     if (WP_DEBUG) {
@@ -144,34 +135,30 @@ function load_vitejs_assets(): void
 add_action("wp_enqueue_scripts", "load_vitejs_assets");
 ```
 
-Cette fonction va venir faire gérer l'ajout des assets dans notre projet en fonction de l'environnement dans lequel nous sommes. Et cela via la variable `WP_DEBUG`.
+Cette fonction va gérer l'ajout des assets dans notre projet en fonction de l'environnement dans lequel nous sommes, via la variable `WP_DEBUG`.
 
 Concrètement, si nous sommes en mode développement (`WP_DEBUG` est `true`), nous allons charger les fichiers depuis le serveur de développement de Vite (`http://localhost:5173`). Si nous sommes en mode production (`WP_DEBUG` est `false`), nous allons charger les fichiers compilés depuis le dossier `dist` de notre thème.
 
-### Etape 4: Lancement de l'environnement de développement
+### Étape 4 : Lancement de l'environnement de développement
 
-A ce stade, voici le contenu de mon theme :
+À ce stade, voici le contenu de mon thème :
 
 ```
 └── 📁theme-vite
-    └── 📁assets
-        └── main.css
-        └── main.js
-    └── functions.php
-    └── index.php
-    └── package-lock.json
-    └── package.json
-    └── style.css
+    ├── 📁assets
+    │   ├── main.css
+    │   └── main.js
+    ├── functions.php
+    ├── index.php
+    ├── package-lock.json
+    ├── package.json
+    ├── style.css
     └── vite.config.mjs
 ```
 
-Pour lié votre serveur vite à votre theme, veillez à bien avoir dans votre balise `<head>` le load de vos scripts. Au minimum, vous devriez avoir :
+Pour lier votre serveur Vite à votre thème, veillez à bien avoir dans votre balise `<head>` le chargement de vos scripts. Au minimum, vous devriez avoir :
 
 ```php
-// header.php
-
-<?php
-
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -184,6 +171,6 @@ Pour lié votre serveur vite à votre theme, veillez à bien avoir dans votre ba
 
 ## Conclusion
 
-Si vous avez suivi les étapes précédentes, vous devriez désormais sur le frontend de votre site WordPress, voir votre serveur de développement de Vite (`http://localhost:5173`), ainsi que vos assets, vous pouvez désormais modifier vos fichiers et le HMR rechargera automatiquement votre page !
+Si vous avez suivi les étapes précédentes, vous devriez désormais voir sur le frontend de votre site WordPress votre serveur de développement de Vite (`http://localhost:5173`), ainsi que vos assets. Vous pouvez désormais modifier vos fichiers et le HMR rechargera automatiquement votre page !
 
-Voila, aujourd'hui tous mes projets WordPress se basent sur ce starter, qui est pour moi bien plus agréable à utiliser dans mon développement. Il est très certainement perfectible et peut être configuré de bien d'autres manières. Si vous utilisez également ViteJS d'une autre façon, n'hésitez pas à me faire un retour.
+Voilà, aujourd'hui tous mes projets WordPress se basent sur ce starter, qui est pour moi bien plus agréable à utiliser dans mon développement. Il est très certainement perfectible et peut être configuré de bien d'autres manières. Si vous utilisez également ViteJS d'une autre façon, n'hésitez pas à me faire un retour.
