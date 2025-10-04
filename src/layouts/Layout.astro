@@ -26,14 +26,6 @@ const lang = getLangFromUrl(Astro.url);
 		<meta name="viewport" content="width=device-width" />
 		<Seo title={title} metaTitle={metaTitle} metaDescription={metaDescription} pageType={pageType} />
 		<Analytics />
-		<script>
-			(function() {
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme) {
-        document.body.setAttribute('data-theme', savedTheme);
-      }
-    	})();
-		</script>
 		<ClientRouter />
 	</head>
 
@@ -42,6 +34,12 @@ const lang = getLangFromUrl(Astro.url);
 		data-modal="close"
 		class="bg-neutral-100 font-sans font-medium text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100 overflow-auto data-[modal=open]:overflow-hidden data-[modal=open]:overscroll-contain data-[modal=open]:pointer-events-none data-[modal=open]:!mr-[15px]"
 	>
+		<script is:inline>
+			(function() {
+				const userTheme = localStorage.getItem('theme') || 'light';
+				document.body.setAttribute('data-theme', userTheme);
+			})();
+		</script>
 		<Launcher />
 		<NoiseBackground />
 	
